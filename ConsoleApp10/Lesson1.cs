@@ -13,13 +13,7 @@ namespace ConsoleApp10
         {
             int maxInd = 0;
 
-            int n = Convert.ToInt32(Console.ReadLine());
-            int[] num = new int[n];
-;
-            for (int i = 0; i < num.Length; i++)
-            {
-                num[i] = Convert.ToInt32(Console.ReadLine());
-            }
+            var num = GetIntArrayFromKeyboard();
 
             var maxNum = num[0];
 
@@ -40,22 +34,15 @@ namespace ConsoleApp10
         {
             int maxInd = 0;
 
-            int n = Convert.ToInt32(Console.ReadLine());
-            int[] num = new int[n];
-            ;
-            for (int i = 0; i < num.Length; i++)
-            {
-                num[i] =Math.Abs( Convert.ToInt32(Console.ReadLine()));
-            }
+            var num = GetIntArrayFromKeyboard();
 
             var maxNum = num[0];
 
             for (int i = 1; i < num.Length; i++)
             {
-                if (maxNum < num[i])
+                if (maxNum < Math.Abs(num[i]))
                 {
-                    maxNum = num[i];
-
+                    maxNum = Math.Abs(num[i]);
                     maxInd = i;
                 }
 
@@ -68,17 +55,11 @@ namespace ConsoleApp10
             int maxInd = 0;
             int minInd = 0;
 
-            int n = Convert.ToInt32(Console.ReadLine());
-            int[] num = new int[n];
-            
-            for (int i = 0; i < num.Length; i++)
-            {
-                num[i] = Math.Abs(Convert.ToInt32(Console.ReadLine()));
-            }
+            var num = GetIntArrayFromKeyboard();
 
             var maxNum = num[0];
             var minNum = num[0];
-
+            // i = 1, i = 0
             for (int i = 1; i < num.Length; i++)
             {
                 if (maxNum < num[i])
@@ -86,25 +67,47 @@ namespace ConsoleApp10
                     maxInd = i;
                     maxNum = num[i];
                 }
-                else
+                else if (minNum > num[i])
                 {
                     minInd = i;
                     minNum = num[i];
                 }
-
             }
 
-            var minimal = num[minInd];
-            var maximal = num[maxInd];
+            num[maxInd] = minNum;
+            num[minInd] = maxNum;
 
-            num[minInd] = maximal;
-            num[maxInd] = minimal;
+            Console.WriteLine("New array");
+            for (int i = 0; i < num.Length; i++)
+            {
+                Console.Write($"{ num[i] } ");
+            }
+        }
+
+        public static void Task4()
+        {
+            var num = GetIntArrayFromKeyboard();
+
+            for (int i = 1; i < num.Length; i++)
+            {
+                if (num[i - 1] < num[i])
+                {
+                    Console.WriteLine(num[i]);
+                }
+            }
+        }
+
+        private static int[] GetIntArrayFromKeyboard()
+        {
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] num = new int[n];
 
             for (int i = 0; i < num.Length; i++)
             {
-                Console.WriteLine(num[i]);
+                num[i] = Convert.ToInt32(Console.ReadLine());
             }
-            
+
+            return num;
         }
     }
 }

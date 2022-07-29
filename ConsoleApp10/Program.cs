@@ -9,7 +9,8 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-            Lesson1.Task3();
+
+            Lesson1.Task4();
 
         }
 
