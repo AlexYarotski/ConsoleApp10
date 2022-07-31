@@ -1,113 +1,182 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp10
+﻿namespace ConsoleApp10
 {
     public static class Lesson1
     {
 
         public static void Task1()
         {
-            int maxInd = 0;
+            int maxIndex = 0;
 
-            var num = GetIntArrayFromKeyboard();
+            var array = GetIntArrayFromKeyboard();
 
-            var maxNum = num[0];
+            var maxNum = array[0];
 
-            for (int i = 1; i < num.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
-                if (maxNum < num[i])
+                if (maxNum < array[i])
                 {
-                    maxNum = num[i];
+                    maxNum = array[i];
 
-                    maxInd = i;
+                    maxIndex = i;
                 }
 
             }
-            Console.WriteLine($"Индекс: {maxInd} \r\nЧисло: {maxNum}");
+            Console.WriteLine($"Индекс: {maxIndex} \r\nЧисло: {maxNum}");
         }
 
         public static void Task2()
         {
-            int maxInd = 0;
+            int maxIndex = 0;
 
-            var num = GetIntArrayFromKeyboard();
+            var array = GetIntArrayFromKeyboard();
 
-            var maxNum = num[0];
+            var maxNum = Math.Abs(array[0]);
 
-            for (int i = 1; i < num.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
-                if (maxNum < Math.Abs(num[i]))
+                if (maxNum < Math.Abs(array[i]))
                 {
-                    maxNum = Math.Abs(num[i]);
-                    maxInd = i;
+                    maxNum = Math.Abs(array[i]);
+                    maxIndex = i;
                 }
 
             }
-            Console.WriteLine($"Индекс: {maxInd} \r\nЧисло: {maxNum}");
+            Console.WriteLine($"Индекс: {maxIndex} \r\nЧисло: {maxNum}");
         }
 
         public static void Task3()
         {
-            int maxInd = 0;
-            int minInd = 0;
+            int maxIndex = 0;
+            int minIndex = 0;
 
-            var num = GetIntArrayFromKeyboard();
+            var array = GetIntArrayFromKeyboard();
 
-            var maxNum = num[0];
-            var minNum = num[0];
+            var maxNum = array[0];
+            var minNum = array[0];
+            int emp = 0;
             // i = 1, i = 0
-            for (int i = 1; i < num.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
-                if (maxNum < num[i])
+                if (maxNum < array[i])
                 {
-                    maxInd = i;
-                    maxNum = num[i];
+                    maxIndex = i;
+                    maxNum = array[i];
                 }
-                else if (minNum > num[i])
+                if (minNum > array[i])
                 {
-                    minInd = i;
-                    minNum = num[i];
+                    minIndex = i;
+                    minNum = array[i];
                 }
             }
+            emp = array[maxIndex];
+            array[maxIndex] = array[minIndex];
+            array[minIndex] = emp;  
 
-            num[maxInd] = minNum;
-            num[minInd] = maxNum;
-
-            Console.WriteLine("New array");
-            for (int i = 0; i < num.Length; i++)
+            Console.WriteLine("Новый массив: ");
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.Write($"{ num[i] } ");
+                Console.Write($"{ array[i] } ");
             }
         }
 
         public static void Task4()
         {
-            var num = GetIntArrayFromKeyboard();
+            var array = GetIntArrayFromKeyboard();
 
-            for (int i = 1; i < num.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
-                if (num[i - 1] < num[i])
+                if (array[i - 1] < array[i])
                 {
-                    Console.WriteLine(num[i]);
+                    Console.Write($"{array[i]} ");
+                }
+            }
+        }
+
+        public static void Task5()
+        {
+            Console.Write("Введите размер массива: ");
+            int arraySize = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[arraySize];
+
+            Console.WriteLine("Рандомно получили числа: ");
+            Random random = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(-100, 100);
+                Console.Write($"{array[i]} ");
+                Console.WriteLine("");
+            }
+
+            Console.WriteLine("Введите индекс массива который хотите удалить: ");
+            int arrayIndex = Convert.ToInt32(Console.ReadLine());
+            while (arrayIndex < 0 || arrayIndex > (arraySize - 1))
+            {            
+                Console.WriteLine($"Индекс должен быть от 0 до {arraySize -1}");
+                Console.Write("Введите индекс массива который хотите удалить: ");
+                arrayIndex = Convert.ToInt32(Console.ReadLine());
+            }
+            int[] resultArray = new int[arraySize - 1];
+            int j = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if(i != arrayIndex)
+                {
+                    resultArray[j] = array[i];
+                    Console.Write($"{resultArray[j]} ");
+                    j++;
+                }
+            }
+
+        }
+
+        public static void Task6()
+        {
+            int j = 0;
+            int q = 0;
+            var array = GetIntArrayFromKeyboard();
+
+            Console.Write("Введите минимальную границу массива: ");
+            int minValue = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Введите максимальную границу массива: ");
+            int maxValue = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < minValue || array[i] > maxValue)
+                {
+                    j++;
+                }
+            }
+
+            Console.Write("Новый массив: ");
+            var newArray = new int[j];
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < minValue || array[i] > maxValue)
+                {
+
+                    newArray[q] = array[i];
+                    Console.Write($"{newArray[q]} ");
+                    q++;
+                   
                 }
             }
         }
 
         private static int[] GetIntArrayFromKeyboard()
         {
+            Console.WriteLine("Введите размер массива: ");
             int n = Convert.ToInt32(Console.ReadLine());
-            int[] num = new int[n];
+            int[] array = new int[n];
 
-            for (int i = 0; i < num.Length; i++)
+            Console.WriteLine("Введите значения массива: ");
+
+            for (int i = 0; i < array.Length; i++)
             {
-                num[i] = Convert.ToInt32(Console.ReadLine());
+                array[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            return num;
+            return array;
         }
     }
 }
