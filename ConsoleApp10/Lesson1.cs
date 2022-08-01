@@ -53,9 +53,9 @@
 
             var maxNum = array[0];
             var minNum = array[0];
-            int emp = 0;
+            int temp = 0;
             // i = 1, i = 0
-            for (int i = 1; i < array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (maxNum < array[i])
                 {
@@ -68,9 +68,9 @@
                     minNum = array[i];
                 }
             }
-            emp = array[maxIndex];
+            temp = array[maxIndex];
             array[maxIndex] = array[minIndex];
-            array[minIndex] = emp;  
+            array[minIndex] = temp;  
 
             Console.WriteLine("Новый массив: ");
             for (int i = 0; i < array.Length; i++)
@@ -109,7 +109,7 @@
 
             Console.WriteLine("Введите индекс массива который хотите удалить: ");
             int arrayIndex = Convert.ToInt32(Console.ReadLine());
-            while (arrayIndex < 0 || arrayIndex > (arraySize - 1))
+            while (arrayIndex < 0 | arrayIndex > (arraySize - 1))
             {            
                 Console.WriteLine($"Индекс должен быть от 0 до {arraySize -1}");
                 Console.Write("Введите индекс массива который хотите удалить: ");
@@ -142,7 +142,7 @@
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] < minValue || array[i] > maxValue)
+                if (array[i] < minValue | array[i] > maxValue)
                 {
                     j++;
                 }
@@ -163,6 +163,46 @@
             }
         }
 
+        public static void Task7()
+        {
+
+            var array = GetIntArrayFromKeyboard();
+
+            int n = array.Length;
+            var newArray = new int[array.Length];
+            for (int i = array.Length - 1; i >= 0 ; i--)
+            {
+                newArray[n - i - 1] = array[i];
+            }
+            PrintArr (newArray);
+        }
+
+        public static void Task8()
+        {
+            var array = GetIntArrayFromKeyboard();
+            int n = array.Length ;
+
+            for (int i = 0; i < n - 1; i++) 
+            {
+                for (int j = i +1; j < n; j++) 
+                {
+                    if (array[i] > array[j])
+                    {
+                        int temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+                // 4 3 2 1
+                // 3 4 2 1
+                // 2 4 3 1
+                // 1 4 3 2
+                // 1 3 4 2
+                // 1 2 4 3
+                // 1 2 3 4
+            }
+            PrintArr(array);
+        }
         private static int[] GetIntArrayFromKeyboard()
         {
             Console.WriteLine("Введите размер массива: ");
@@ -177,6 +217,13 @@
             }
 
             return array;
+        }
+        public static void PrintArr(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write($"{arr[i]}, ");
+            }
         }
     }
 }
