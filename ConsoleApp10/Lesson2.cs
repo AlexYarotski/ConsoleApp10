@@ -39,21 +39,19 @@
         {
             Console.Write("Введите слово: ");
             string input = Console.ReadLine();
-            var charArray = input.ToCharArray();
+            var n = input.Length;
+
             var isPolindrome = false;
 
-            for (int i = 0; i < charArray.Length; i++)
+            for (int i = input.Length -1 ; i >= 0; i--)
             {
-                if (charArray[i] == charArray[charArray.Length - 1 - i])
+                if (input[n - i - 1] == input[i])
                 {
                     isPolindrome = true;
                     continue;
                 }
-                else
-                {
-                    isPolindrome = false;
-                    break;
-                }
+                isPolindrome = false;
+                break;
             }
             Console.WriteLine($"{ (isPolindrome ? $"Слово {input} является палиндромом" : $"Слово {input} не является палиндромом") }");
         }
@@ -62,25 +60,22 @@
         {
             Console.Write("Введите слово: ");
             string input = Console.ReadLine();
-            var charArray = input.ToCharArray();
+            var n = input.Length;
 
             var isPolindrome = false;
 
-            var centr = charArray.Length / 2;
+            var centr = input.Length / 2;
             
-                for (int j = charArray.Length, i = 0 ; j > charArray.Length - centr; j--, i++)
+                for (int i = 0 ; i < centr; i++)
                 {
                     
-                    if (charArray[i] == charArray[j - 1])
+                    if (input[n - i - 1] == input[i])
                     {
                         isPolindrome = true;
                         continue;
                     }
-                    else
-                    {
                         isPolindrome = false;
                         break;
-                    }
                 }
             
             Console.WriteLine($"{(isPolindrome ? $"Слово {input} является палиндромом" : $"Слово {input} не является палиндромом")}");
