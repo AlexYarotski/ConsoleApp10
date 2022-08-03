@@ -7,7 +7,7 @@ namespace MyApp
         static void Main(string[] args)
         {
 
-            Lesson2.Task5();
+            Lesson2.Task7();
 
         }
 

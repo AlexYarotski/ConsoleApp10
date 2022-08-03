@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp10
+﻿namespace ConsoleApp10
 {
     internal class Lesson2
     {
@@ -40,9 +34,71 @@ namespace ConsoleApp10
             }
             Console.WriteLine($"Самое короткое имя: { shortName}");
         }
-        private static string GetStringFromKeyboard()
+
+        public static void Task6()
         {
-            return string.Empty;
+            Console.Write("Введите слово: ");
+            string input = Console.ReadLine();
+            var charArray = input.ToCharArray();
+            var isPolindrome = false;
+
+            for (int i = 0; i < charArray.Length; i++)
+            {
+                if (charArray[i] == charArray[charArray.Length - 1 - i])
+                {
+                    isPolindrome = true;
+                    continue;
+                }
+                else
+                {
+                    isPolindrome = false;
+                    break;
+                }
+            }
+            Console.WriteLine($"{ (isPolindrome ? $"Слово {input} является палиндромом" : $"Слово {input} не является палиндромом") }");
+        }
+
+        public static void Task6A()
+        {
+            Console.Write("Введите слово: ");
+            string input = Console.ReadLine();
+            var charArray = input.ToCharArray();
+
+            var isPolindrome = false;
+
+            var centr = charArray.Length / 2;
+            
+                for (int j = charArray.Length, i = 0 ; j > charArray.Length - centr; j--, i++)
+                {
+                    
+                    if (charArray[i] == charArray[j - 1])
+                    {
+                        isPolindrome = true;
+                        continue;
+                    }
+                    else
+                    {
+                        isPolindrome = false;
+                        break;
+                    }
+                }
+            
+            Console.WriteLine($"{(isPolindrome ? $"Слово {input} является палиндромом" : $"Слово {input} не является палиндромом")}");
+
+        }
+
+        public static void Task7()
+        {
+            Console.WriteLine("Привет");
+
+            Console.Write("Введи фразу: ");
+            var text = Console.ReadLine();
+
+            Console.WriteLine("Какое слово потерял?");
+            var word = Console.ReadLine();
+
+            bool isContain = text.Contains(word);
+            Console.WriteLine(isContain ? "Поздровляю! Здесь оно есть" : "К сожеление здесь его нет");
         }
     }
 }
