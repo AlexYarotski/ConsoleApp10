@@ -142,7 +142,7 @@
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] < minValue | array[i] > maxValue)
+                if (array[i] < minValue || array[i] > maxValue)
                 {
                     j++;
                 }
