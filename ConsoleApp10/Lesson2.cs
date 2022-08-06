@@ -5,26 +5,18 @@
         {
             var multiArray = GetMultidimensionalArrayintFromKeyboard();
 
-            
             var columnIndex = 0;
-
-
             for (int i = 0; i < multiArray.GetLength(0); i++)
             {
                 for (int j = 0; j < multiArray.GetLength(1); j++)
                 {
-                    if (multiArray[i, 0] > multiArray[i, j])
+                    if (multiArray[i, 0] >= multiArray[i, j])
                     {
                         columnIndex = j;
                         multiArray[i, 0] = multiArray[i, j];
                     }
-                    else
-                    {
-                        columnIndex = 0;
-                    }
                 }
                 Console.WriteLine($"Минимальный индекс {i} строки массива: Столбец: {i}  Строка: {columnIndex}");
-
             }
         }
         
@@ -35,13 +27,11 @@
             var minArrNum = multiArray[0, 0];
             var rowIndex = 0;
             var columIndex = 0;
-
-
             for (int i = 0; i < multiArray.GetLength(0); i++)
             {
                 for (int j = 0; j < multiArray.GetLength(1); j++)
                 {
-                    if (minArrNum > multiArray[i, j])
+                    if (minArrNum >= multiArray[i, j])
                     {
                         columIndex = j;
                         minArrNum = multiArray[i, j];
@@ -56,7 +46,6 @@
         {
             var multiArray = GetMultidimensionalArrayintFromKeyboard();
 
-            
             var sumArray = new int[multiArray.GetLength(0)];
             for (int i = 0; i < multiArray.GetLength(0); i++)
             {
@@ -83,7 +72,6 @@
                 }
             }
             Console.WriteLine($"Максимальный элемент: {maxSum}");
-
         }
 
         public static void Task3()
@@ -104,26 +92,34 @@
                     {
                         negative++;
                     }
-                }
-            }
-            
-            Console.WriteLine($"Колличество положительных чисел: {positive}\r\nКоличество отрицательных чисел: {negative}");
-
-            
-            
-            for (int i = 0; i < multiArray.GetLength(0); i++)
-            {
-                for (int j = 0; j < multiArray.GetLength(1); j++)
-                {
                     if (multiArray[i, j] == 0)
                     {
                         Console.WriteLine($"Индекс столбца нулевого элемента: {i}  Индекс строки: {j}");
                     }
                 }
             }
-
+            Console.WriteLine($"Колличество положительных чисел: {positive}\r\nКоличество отрицательных чисел: {negative}");
         }
         
+        public static void Task4()
+        {
+            var multiArray = GetMultidimensionalArrayintFromKeyboard();
+
+            
+            for (int i = 0; i < multiArray.GetLength(0); i++)
+            {   
+                int num = 0;
+                for (int j = 0; j < multiArray.GetLength(1); j++)
+                {
+                    if ((multiArray[i, j]%2) == 0)
+                    {
+                        num++;
+                    }
+                }
+                Console.WriteLine(num <= 3 && num != 0? $"Номер строки {i}": "" );
+            }
+        }
+
         public static void Task5()
         {
             Console.Write("Сколько имен ты знаешь: ");
