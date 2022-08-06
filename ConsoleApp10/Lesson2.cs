@@ -5,8 +5,7 @@
         {
             var multiArray = GetMultidimensionalArrayintFromKeyboard();
 
-            var minArrNum = multiArray[0, 0];
-            var rowIndex = 0;
+            
             var columnIndex = 0;
 
 
@@ -14,20 +13,19 @@
             {
                 for (int j = 0; j < multiArray.GetLength(1); j++)
                 {
-                    if (minArrNum > multiArray[i, j])
+                    if (multiArray[i, 0] > multiArray[i, j])
                     {
-
                         columnIndex = j;
-                        minArrNum = multiArray[i, j];
-                        rowIndex = i; 
+                        multiArray[i, 0] = multiArray[i, j];
+                    }
+                    else
+                    {
+                        columnIndex = 0;
                     }
                 }
-                Console.WriteLine($"Минимальный индекс {i} строки массива: Столбец: {rowIndex}  Строка: {columnIndex}");
+                Console.WriteLine($"Минимальный индекс {i} строки массива: Столбец: {i}  Строка: {columnIndex}");
 
             }
-
- 
-           
         }
         
         public static void Task1Dop()
@@ -35,8 +33,8 @@
             var multiArray = GetMultidimensionalArrayintFromKeyboard();
 
             var minArrNum = multiArray[0, 0];
-            var y = 0;
-            var x = 0;
+            var rowIndex = 0;
+            var columIndex = 0;
 
 
             for (int i = 0; i < multiArray.GetLength(0); i++)
@@ -45,16 +43,13 @@
                 {
                     if (minArrNum > multiArray[i, j])
                     {
-
-                        x = j;
+                        columIndex = j;
                         minArrNum = multiArray[i, j];
-                        y = i;
+                        rowIndex = i;
                     }
                 }
-                
-
             }
-            Console.WriteLine($"Минимальный индекс массива: Столбец: {y}  Строка: {x}");
+            Console.WriteLine($"Минимальный индекс массива: Столбец: {rowIndex}  Строка: {columIndex}");
         }
 
         public static void Task2()
@@ -97,7 +92,6 @@
 
             var positive = 0;
             var negative = 0;
-            var z = 0;
             for (int i = 0; i < multiArray.GetLength(0); i++)
             {
                 for (int j = 0; j < multiArray.GetLength(1); j++)
@@ -129,6 +123,7 @@
             }
 
         }
+        
         public static void Task5()
         {
             Console.Write("Сколько имен ты знаешь: ");
@@ -225,7 +220,13 @@
     
         public static int[,] GetMultidimensionalArrayintFromKeyboard()
         {
-            int[,] myArray = new int[2, 3];
+            Console.WriteLine("Введите количество строк:");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Введите количество сталбцов:");
+            int m = Convert.ToInt32(Console.ReadLine());
+
+            int[,] myArray = new int[n, m];
             Console.WriteLine("Заполни массив:");
             for (int i = 0; i < myArray.GetLength(0); i++)
             {
