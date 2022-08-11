@@ -15,8 +15,7 @@ namespace ConsoleApp10.Lesson3
         }
 
         public Circle() { }
-        
-
+       
         private double squ;
         public double Squ
         {
@@ -28,7 +27,5 @@ namespace ConsoleApp10.Lesson3
         {
             get { return len = 2 * Math.PI * Rad; }
         }
-
-
     }
 }
