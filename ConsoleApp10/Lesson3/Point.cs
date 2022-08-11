@@ -19,8 +19,5 @@ namespace ConsoleApp10.Lesson3
             Y = y;
             counter++;
         }
-
-
-
     }
 }
