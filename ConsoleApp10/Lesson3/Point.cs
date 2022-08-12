@@ -8,8 +8,8 @@ namespace ConsoleApp10.Lesson3
 {
     internal class Point
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public int X { get; private set; }
+        public int Y { get; private set; }
 
         internal static int counter = 0;
 
@@ -18,6 +18,14 @@ namespace ConsoleApp10.Lesson3
             X = x;
             Y = y;
             counter++;
+        }
+        public void Print()
+        {
+            Console.WriteLine("Задача 1");
+            Console.WriteLine($"Ось X {X}");
+            Console.WriteLine($"Ось Y {Y}");
+            Console.WriteLine($"Колличество экземляров {counter}");
+            Console.WriteLine();
         }
     }
 }

@@ -8,24 +8,36 @@ namespace ConsoleApp10.Lesson3
 {
     internal class Circle
     {
-        public int Rad { get; set; }
-        public Circle(int rad)
+        public uint Radius
         {
-            Rad = rad;
+            get;
+            internal set;
+        }
+        public Circle(uint radius)
+        {
+            Radius = radius;
+
         }
 
         public Circle() { }
-       
-        private double squ;
-        public double Squ
+        public double Square
         {
-            get { return squ = Math.PI * Math.Pow(Rad, 2); }
+            get  => Math.PI * Math.Pow(Radius, 2);
+            
         }
 
-        private double len;
-        public double Len
+        public double Length
         {
-            get { return len = 2 * Math.PI * Rad; }
+            get  => 2 * Math.PI * Radius; 
+        }
+
+        public void Print()
+        {
+            Console.WriteLine("Задача 2");
+            Console.WriteLine($"Радиус круга {Radius}");
+            Console.WriteLine($"Площадь круга {Square}");
+            Console.WriteLine($"Длина круга {Length}");
+            Console.WriteLine();
         }
     }
 }
