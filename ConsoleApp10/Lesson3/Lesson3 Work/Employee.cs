@@ -89,7 +89,7 @@ namespace ConsoleApp10.Lesson3
         }
         public void Print()
         {
-            Console.WriteLine("Занятие 3");
+            Console.WriteLine("Задание 3");
             Console.WriteLine($"Номер ID {Id}");
             Console.WriteLine($"Оклад {Salary}");
             Console.WriteLine($"Дата приема на работу {Date}");

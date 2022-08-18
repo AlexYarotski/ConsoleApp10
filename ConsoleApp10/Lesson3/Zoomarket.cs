@@ -31,13 +31,65 @@ namespace ConsoleApp10.Lesson3
             Animals = animals;
         }
 
-        public void DeleteAnimal(Animal[] animals, Kind kindAnimal)
+        public void DeleteAnimal(Kind kindAnimal)
         {
-            int[] deleteAnimal = new int[Animals.Length - 2];
+            int j = 0;
+            int newArrayLength = 0;
             for (int i = 0; i < Animals.Length; i++)
             {
-                
+                if (Animals[i].KindAnimal != kindAnimal)
+                {
+                    newArrayLength++;
+                }
             }
+
+            Animal[] newArray = new Animal[newArrayLength];
+            for (int i = 0; i < Animals.Length; i++)
+            {
+                if (Animals[i].KindAnimal != kindAnimal)
+                {
+                    newArray[j] = Animals[i];
+                    j++;
+                }
+            }
+
+            Animals = newArray;
+
+            Console.WriteLine($"Удалили животное {kindAnimal}");
+        }
+
+        public void AddAnimal(Animal[] animals)
+        {
+            var addArrayAnimal = new Animal[Animals.Length + animals.Length];
+            int j = 0;
+            for (int i = 0; i < Animals.Length; i++)
+            {
+                addArrayAnimal[i] = Animals[i];
+                j++;
+            }
+
+            for (int i = 0, k = j; i < animals.Length; i++, k++)
+            {
+                addArrayAnimal[k] = animals[i];
+            }
+
+            Animals = addArrayAnimal;
+        }
+
+        public Animal RichAnimal()
+        {
+            int j = 0;
+            var expensiveAnimal = Animals[0].Price;
+            for (int i = 1; i < Animals.Length; i++)
+            {
+                if (expensiveAnimal < Animals[i].Price)
+                {
+                    expensiveAnimal = Animals[i].Price;
+                    j = i;
+                }
+            }
+
+            return Animals[j];
         }
         public void SetName(string name) 
         { 

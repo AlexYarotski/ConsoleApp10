@@ -8,8 +8,6 @@ namespace ConsoleApp10.Lesson3
 {
     public class Animal
     {
-        uint price = 0;
-        int number = 0;
         public enum Kind
         {
             Lion,
@@ -22,7 +20,7 @@ namespace ConsoleApp10.Lesson3
         public uint Price
         {
             get;
-            private set;
+            set;
         }
         public Kind KindAnimal
         {
