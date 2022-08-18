@@ -28,27 +28,18 @@ namespace MyApp
             employee.SetDate(new DateTime(2017, 09, 09));
             employee.SetVacancies(Employee.Vacancies.Assistant);
             employee.Print();
-            //var shoes = new Shoes(Colors.Blue);
-            //var clothes = new Clothes(Colors.Green);
-            //var human = new Human(shoes, clothes);
-            //human.PrintOutfit();
+            var shoes = new Shoes(Colors.Blue);
+            var clothes = new Clothes(Colors.Green);
+            var human = new Human(shoes, clothes);
+            human.PrintOutfit();
 
-            Animal[] animalArray = new Animal[] 
-            { 
-                new Animal(320,1,Animal.Kind.Lion), 
-                new Animal(600, 2, Animal.Kind.Monkey),
-                new Animal(55, 3, Animal.Kind.Elephant), 
-                new Animal(342, 4, Animal.Kind.Lion),
-                new Animal(60, 4, Animal.Kind.Elephant),
-                new Animal(12, 4, Animal.Kind.Jaguar),
-                new Animal(357, 4, Animal.Kind.Tiger),
-                new Animal(1003, 4, Animal.Kind.Monkey),
-                new Animal(63, 4, Animal.Kind.Lion)
-            };
+            var animalArray = Animal.GetAninimalForKeyboard();
+            Console.WriteLine();
             var zooMarket = new ZooMarket(animalArray);
-            //var deleteZooMarket = zooMarket.DeleteAnimal(Animal.Kind.Lion);
-            //zooMarket.AddAnimal(new Animal[] {new Animal(60, 9, Animal.Kind.Tiger)});
-            var mostExpensiveAnimal = zooMarket.RichAnimal();
+            zooMarket.DeleteAnimal(Animal.Kind.Лев);
+            zooMarket.AddAnimal(new Animal[] { new Animal(60, 9, Animal.Kind.Ягуар), new Animal(60, 9, Animal.Kind.Обезьяна) });
+            zooMarket.MostExpensiveAnimal();
+            zooMarket.AnimalSearch(Animal.Kind.Обезьяна);
         }
     }
 }

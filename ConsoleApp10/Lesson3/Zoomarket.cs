@@ -51,11 +51,13 @@ namespace ConsoleApp10.Lesson3
                     newArray[j] = Animals[i];
                     j++;
                 }
+                else
+                {
+                    PrintAnimals(new Animal[] { Animals[i] }, "Удалили животное: ");
+                }
             }
 
             Animals = newArray;
-
-            Console.WriteLine($"Удалили животное {kindAnimal}");
         }
 
         public void AddAnimal(Animal[] animals)
@@ -74,26 +76,73 @@ namespace ConsoleApp10.Lesson3
             }
 
             Animals = addArrayAnimal;
+
+            PrintAnimals(animals, "Добавили животное: ");
         }
 
-        public Animal RichAnimal()
+        public Animal MostExpensiveAnimal()
         {
-            int j = 0;
-            var expensiveAnimal = Animals[0].Price;
+            int j = 0; 
             for (int i = 1; i < Animals.Length; i++)
             {
-                if (expensiveAnimal < Animals[i].Price)
+                if (Animals[0].Price < Animals[i].Price)
                 {
-                    expensiveAnimal = Animals[i].Price;
+                    Animals[0].Price = Animals[i].Price;
                     j = i;
                 }
             }
 
+            PrintAnimals(new Animal[] { Animals[j] }, "Самое дорогое животное: ");
             return Animals[j];
         }
+
+        public Animal AnimalsByQuantity()
+        {
+            int j = 0;
+            for (int i = 1; i < Animals.Length; i++)
+            {
+                if (Animals[0].Quantity  < Animals[i].Quantity)
+                {
+                    Animals[0].Quantity = Animals[i].Quantity;
+                    j++;
+                }
+            }
+
+            PrintAnimals(new Animal[] { Animals[j]}, "Самое большое колличество животных: ");
+            return Animals[j];
+        }
+
+        public Animal[] AnimalSearch(Kind kind)
+        {
+            int j = 0;
+            int newArrayLength = 0;
+            for (int i = 0; i < Animals.Length; i++)
+            {
+                if (Animals[i].KindAnimal == kind)
+                {
+                    newArrayLength++;
+                }
+            }
+
+            Animal[] newArray = new Animal[newArrayLength];
+            for (int i = 0; i < Animals.Length; i++)
+            {
+                if (Animals[i].KindAnimal == kind)
+                {
+                    newArray[j] = Animals[i];
+                    PrintAnimals(new Animal[] { newArray[j] }, "Найдено животное: ");
+                } 
+            }
+
+            return newArray;
+        }
+
         public void SetName(string name) 
         { 
             Name = name;
+
+            Console.WriteLine($"Новое назвние {Name}");
+            Console.WriteLine();
         }
     }
 }
