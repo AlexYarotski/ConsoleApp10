@@ -8,29 +8,20 @@ namespace ConsoleApp10.Lesson3
 {
     public class Animal
     {
-        public enum Kind
-        {
-            Лев,
-            Тигр,
-            Слон,
-            Обезьяна,
-            Ягуар
-        }
-
         public uint Price
         {
             get;
-            set;
+            internal set;
         }
         public Kind KindAnimal
         {
             get;
-            set;
+            internal set;
         }
         public int Quantity
         {
             get;
-            set;
+            internal set;
         }
 
         public Animal(uint price, int quantity, Kind kindAnimal)
@@ -67,13 +58,14 @@ namespace ConsoleApp10.Lesson3
 
         public static void PrintAnimals(Animal[] animals, string message)
         {
-            foreach (var animal in animals)
+            for (int i = 0; i < animals.Length; i++)
             {
-                Console.WriteLine($"{message} {animal.KindAnimal}");
+                Console.WriteLine($"{message} {animals[i].KindAnimal}");
+
             }
         }
 
-        public static Animal[] GetAninimalForKeyboard()
+        public static Animal[] GetAninimalFromKeyboard()
         {
             Console.WriteLine("Задание 4");
             Console.Write("Введите количество животных: ");
@@ -96,7 +88,7 @@ namespace ConsoleApp10.Lesson3
 
                 while (!isNumber || number <= 0 || number > Enum.GetValues(typeof(Kind)).Length)
                 {
-                    Console.WriteLine("Ввод принимает только положительное число!");
+                    Console.WriteLine("Ввод принимает только числа от 1 до 5!");
                     Console.Write("Выбирите животное: ");
                     isNumber = int.TryParse(Console.ReadLine(), out number);
                 }

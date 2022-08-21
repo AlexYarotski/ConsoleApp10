@@ -28,18 +28,19 @@ namespace MyApp
             employee.SetDate(new DateTime(2017, 09, 09));
             employee.SetVacancies(Employee.Vacancies.Assistant);
             employee.Print();
+
             var shoes = new Shoes(Colors.Blue);
             var clothes = new Clothes(Colors.Green);
             var human = new Human(shoes, clothes);
             human.PrintOutfit();
 
-            var animalArray = Animal.GetAninimalForKeyboard();
+            var animalArray = Animal.GetAninimalFromKeyboard();
             Console.WriteLine();
             var zooMarket = new ZooMarket(animalArray);
-            zooMarket.DeleteAnimal(Animal.Kind.Лев);
-            zooMarket.AddAnimal(new Animal[] { new Animal(60, 9, Animal.Kind.Ягуар), new Animal(60, 9, Animal.Kind.Обезьяна) });
-            zooMarket.MostExpensiveAnimal();
-            zooMarket.AnimalSearch(Animal.Kind.Обезьяна);
+            //zooMarket.MostExpensiveAnimal();
+            //zooMarket.DeleteAnimal(Kind.Лев);
+            //zooMarket.AddAnimal(new Animal[] { new Animal(60, 9, Kind.Ягуар), new Animal(60, 9, Kind.Обезьяна) });
+            zooMarket.AnimalSearch(Kind.Обезьяна);
         }
     }
 }

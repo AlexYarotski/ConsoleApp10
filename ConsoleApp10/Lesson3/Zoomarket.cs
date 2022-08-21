@@ -17,7 +17,7 @@ namespace ConsoleApp10.Lesson3
         public Animal[] Animals 
         { 
             get;
-            set; 
+            internal set; 
         }
 
         public ZooMarket(string name, Animal[] animals)
@@ -70,7 +70,7 @@ namespace ConsoleApp10.Lesson3
                 j++;
             }
 
-            for (int i = 0, k = j; i < animals.Length; i++, k++)
+            for (int i = 0,k = animals.Length - 1; i < animals.Length; i++, k++)
             {
                 addArrayAnimal[k] = animals[i];
             }
@@ -85,10 +85,9 @@ namespace ConsoleApp10.Lesson3
             int j = 0; 
             for (int i = 1; i < Animals.Length; i++)
             {
-                if (Animals[0].Price < Animals[i].Price)
+                if (Animals[j].Price < Animals[i].Price)
                 {
-                    Animals[0].Price = Animals[i].Price;
-                    j = i;
+                    j++;
                 }
             }
 
@@ -101,9 +100,8 @@ namespace ConsoleApp10.Lesson3
             int j = 0;
             for (int i = 1; i < Animals.Length; i++)
             {
-                if (Animals[0].Quantity  < Animals[i].Quantity)
+                if (Animals[j].Quantity  < Animals[i].Quantity)
                 {
-                    Animals[0].Quantity = Animals[i].Quantity;
                     j++;
                 }
             }
@@ -114,7 +112,6 @@ namespace ConsoleApp10.Lesson3
 
         public Animal[] AnimalSearch(Kind kind)
         {
-            int j = 0;
             int newArrayLength = 0;
             for (int i = 0; i < Animals.Length; i++)
             {
@@ -125,9 +122,9 @@ namespace ConsoleApp10.Lesson3
             }
 
             Animal[] newArray = new Animal[newArrayLength];
-            for (int i = 0; i < Animals.Length; i++)
+            for (int i = 1; i < Animals.Length; i++)
             {
-                if (Animals[i].KindAnimal == kind)
+                if (Animals[0].KindAnimal == kind)
                 {
                     newArray[j] = Animals[i];
                     PrintAnimals(new Animal[] { newArray[j] }, "Найдено животное: ");
