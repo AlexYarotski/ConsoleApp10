@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static ConsoleApp10.Lesson3.Animal;
+﻿using static ConsoleApp10.Lesson3.Lesson3Animal.Animal;
 
-namespace ConsoleApp10.Lesson3
+namespace ConsoleApp10.Lesson3.Lesson3Animal
 {
     internal class ZooMarket
     {
-        public string Name 
+        public string Name
         {
             get;
             private set;
-        }  
-        public Animal[] Animals 
-        { 
+        }
+        public Animal[] Animals
+        {
             get;
-            internal set; 
+            private set;
         }
 
         public ZooMarket(string name, Animal[] animals)
@@ -31,7 +26,7 @@ namespace ConsoleApp10.Lesson3
             Animals = animals;
         }
 
-        public void DeleteAnimal(Kind kindAnimal)
+        public void DeleteAnimalByKind(Kind kindAnimal)
         {
             int j = 0;
             int newArrayLength = 0;
@@ -63,14 +58,12 @@ namespace ConsoleApp10.Lesson3
         public void AddAnimal(Animal[] animals)
         {
             var addArrayAnimal = new Animal[Animals.Length + animals.Length];
-            int j = 0;
             for (int i = 0; i < Animals.Length; i++)
             {
                 addArrayAnimal[i] = Animals[i];
-                j++;
             }
 
-            for (int i = 0,k = animals.Length - 1; i < animals.Length; i++, k++)
+            for (int i = 0, k = animals.Length - 1; i < animals.Length; i++, k++)
             {
                 addArrayAnimal[k] = animals[i];
             }
@@ -82,12 +75,12 @@ namespace ConsoleApp10.Lesson3
 
         public Animal MostExpensiveAnimal()
         {
-            int j = 0; 
+            int j = 0;
             for (int i = 1; i < Animals.Length; i++)
             {
                 if (Animals[j].Price < Animals[i].Price)
                 {
-                    j++;
+                    j = i;
                 }
             }
 
@@ -100,19 +93,20 @@ namespace ConsoleApp10.Lesson3
             int j = 0;
             for (int i = 1; i < Animals.Length; i++)
             {
-                if (Animals[j].Quantity  < Animals[i].Quantity)
+                if (Animals[j].Quantity < Animals[i].Quantity)
                 {
-                    j++;
+                    j = i;
                 }
             }
 
-            PrintAnimals(new Animal[] { Animals[j]}, "Самое большое колличество животных: ");
+            PrintAnimals(new Animal[] { Animals[j] }, "Самое большое колличество животных: ");
             return Animals[j];
         }
 
         public Animal[] AnimalSearch(Kind kind)
         {
             int newArrayLength = 0;
+
             for (int i = 0; i < Animals.Length; i++)
             {
                 if (Animals[i].KindAnimal == kind)
@@ -122,20 +116,20 @@ namespace ConsoleApp10.Lesson3
             }
 
             Animal[] newArray = new Animal[newArrayLength];
-            for (int i = 1; i < Animals.Length; i++)
+            for (int i = 0; i < Animals.Length; i++)
             {
-                if (Animals[0].KindAnimal == kind)
+                if (Animals[i].KindAnimal == kind)
                 {
-                    newArray[j] = Animals[i];
-                    PrintAnimals(new Animal[] { newArray[j] }, "Найдено животное: ");
-                } 
+                    newArray[i] = Animals[i];
+                    PrintAnimals(new Animal[] { newArray[i] }, "Найдено животное: ");
+                }
             }
 
             return newArray;
         }
 
-        public void SetName(string name) 
-        { 
+        public void SetName(string name)
+        {
             Name = name;
 
             Console.WriteLine($"Новое назвние {Name}");

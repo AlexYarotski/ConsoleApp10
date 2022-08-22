@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp10.Lesson3
+﻿namespace ConsoleApp10.Lesson3.Lesson3Animal
 {
     public class Animal
     {
         public uint Price
         {
             get;
-            internal set;
+            private set;
         }
         public Kind KindAnimal
         {
             get;
-            internal set;
+            private set;
         }
         public int Quantity
         {
@@ -33,14 +27,20 @@ namespace ConsoleApp10.Lesson3
         public Animal(uint price)
         {
             Price = price;
+            Quantity = 0;
+            KindAnimal = default;
         }
         public Animal(int quantity)
         {
             Quantity = quantity;
+            Price = 0;
+            KindAnimal = default;
         }
         public Animal(Kind kindAnimal)
         {
             KindAnimal = kindAnimal;
+            Price = 0;
+            Quantity = 0;
         }
 
         public void SetPrice(uint price)
@@ -67,6 +67,7 @@ namespace ConsoleApp10.Lesson3
 
         public static Animal[] GetAninimalFromKeyboard()
         {
+            Console.WriteLine();
             Console.WriteLine("Задание 4");
             Console.Write("Введите количество животных: ");
             int num = Convert.ToInt32(Console.ReadLine());
