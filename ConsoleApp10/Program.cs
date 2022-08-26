@@ -1,6 +1,7 @@
 ﻿using ConsoleApp10;
-using ConsoleApp10.Lesson3;
 using ConsoleApp10.Lesson3.Lesson3Animal;
+using ConsoleApp10.Lesson3.Lesson4;
+using ConsoleApp10.Lesson4;
 
 namespace MyApp
 {
@@ -35,14 +36,55 @@ namespace MyApp
             //var human = new Human(shoes, clothes);
             //human.PrintOutfit();
 
-            var animalArray = Animal.GetAninimalFromKeyboard();
-            Console.WriteLine();
-            var zooMarket = new ZooMarket(animalArray);
-            zooMarket.MostExpensiveAnimal();
+            //var animalArray = Animal.GetAninimalFromKeyboard();
+            //Console.WriteLine();
+            //var zooMarket = new ZooMarket(animalArray);
+            //zooMarket.MostExpensiveAnimal();
             //zooMarket.AddAnimal(new Animal[] { new Animal(60, 9, Kind.Ягуар), new Animal(60, 9, Kind.Слон) });
-            //zooMarket.AnimalSearch(Kind.Обезьяна);
-            zooMarket.AnimalsByQuantity();
+            ////zooMarket.AnimalSearch(Kind.Обезьяна);
+            //zooMarket.AnimalsByQuantity();
             //zooMarket.DeleteAnimalByKind(Kind.Лев);
+
+            //Animal cat = new Cat(22, 11, 7);
+            //Animal dog = new Dog(44, 32, true);
+
+            //Console.WriteLine(cat.Price);
+            //cat.MakeSound();
+            //Console.WriteLine(dog.Price);
+            //dog.MakeSound();
+
+            //var array1 = new int[3, 3];
+            //var matrix1 = new Matrix(array1);
+            //matrix1.GetRandomArray();
+            //var array2 = new int[3, 4];
+            //var matrix2 = new Matrix(array2);
+            //matrix2.GetRandomArray();
+
+
+            //matrix1.MultiplayArray(matrix2.ArrayMatrix);
+            //var sort = new Sort();
+            //var arraySort = sort.GetRandomArray(5);
+            //sort.BubbleSort(arraySort);
+
+            var point = new Point();
+
+            var points = new Point[] { new Point(1,1), new Point(2,3), new Point(4, 3), new Point(5, 1) };
+            var isEquilateralTrapezoid = point.IsEquilateralTrapezoid(points);
+            var perimeter = point.GetPerimeter(points);
+            Console.WriteLine(isEquilateralTrapezoid ? "Трапеция является равнобедренной": "Трапеция не является равнобедренной");
+            Console.WriteLine($"Периметер трапецииравен: {perimeter}");
+
+
+            var trapezoids = new EquilateralTrapezoid[]
+            {
+                    new EquilateralTrapezoid (new Point(1,1), new Point(2,3), new Point(4, 3), new Point(5, 1)),
+                    new EquilateralTrapezoid (new Point(1,2), new Point(0,5), new Point(5, 5), new Point(4, 2)),
+                    new EquilateralTrapezoid (new Point(3,1), new Point(1,6), new Point(7, 6), new Point(5, 1)),
+                    new EquilateralTrapezoid (new Point(2,3), new Point(4,5), new Point(7, 5), new Point(8, 3)),
+                    new EquilateralTrapezoid (new Point(2,3), new Point(1,7), new Point(8, 7), new Point(5, 3)),
+            };
+            
+            var count = EquilateralTrapezoid.GetTrapezoidsNumberWithSquareMoreThanAverage(trapezoids);
         }
     }
 }

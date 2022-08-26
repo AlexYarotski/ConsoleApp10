@@ -9,6 +9,7 @@ namespace ConsoleApp10.Lesson3.Lesson3Animal
             get;
             private set;
         }
+
         public Animal[] Animals
         {
             get;
