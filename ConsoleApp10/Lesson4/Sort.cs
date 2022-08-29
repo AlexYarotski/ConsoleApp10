@@ -27,14 +27,14 @@ namespace ConsoleApp10.Lesson4
 
         public void BubbleSort(int[] array)
         {
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length - 2; i++)
             {
-                for (int j = i +1; j < array.Length; j++)
+                for (int j = 0; j < array.Length - 2; j++)
                 {
-                    if (array[i] < array[j])
+                    if (array[j] < array[j + 1])
                     {
-                        int sortResult = array[i];
-                        array[i] = array[j];
+                        int sortResult = array[j + 1];
+                        array[j + 1] = array[j];
                         array[j] = sortResult;
                     }
                 }

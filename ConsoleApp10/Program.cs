@@ -59,20 +59,18 @@ namespace MyApp
             //var array2 = new int[3, 4];
             //var matrix2 = new Matrix(array2);
             //matrix2.GetRandomArray();
-
-
             //matrix1.MultiplayArray(matrix2.ArrayMatrix);
+
             //var sort = new Sort();
             //var arraySort = sort.GetRandomArray(5);
             //sort.BubbleSort(arraySort);
 
-            var point = new Point();
-
-            var points = new Point[] { new Point(1,1), new Point(2,3), new Point(4, 3), new Point(5, 1) };
+            var point = new EquilateralTrapezoid();
+            var points = new EquilateralTrapezoid[] { new Point(1, 1), new Point(2, 3), new Point(4, 3), new Point(5, 1) };
             var isEquilateralTrapezoid = point.IsEquilateralTrapezoid(points);
             var perimeter = point.GetPerimeter(points);
-            Console.WriteLine(isEquilateralTrapezoid ? "Трапеция является равнобедренной": "Трапеция не является равнобедренной");
-            Console.WriteLine($"Периметер трапецииравен: {perimeter}");
+            Console.WriteLine(isEquilateralTrapezoid ? "Трапеция является равнобедренной" : "Трапеция не является равнобедренной");
+            Console.WriteLine($"Периметер трапеции равен: {perimeter}");
 
 
             var trapezoids = new EquilateralTrapezoid[]
@@ -83,8 +81,10 @@ namespace MyApp
                     new EquilateralTrapezoid (new Point(2,3), new Point(4,5), new Point(7, 5), new Point(8, 3)),
                     new EquilateralTrapezoid (new Point(2,3), new Point(1,7), new Point(8, 7), new Point(5, 3)),
             };
-            
+
             var count = EquilateralTrapezoid.GetTrapezoidsNumberWithSquareMoreThanAverage(trapezoids);
+
+
         }
     }
 }
