@@ -15,7 +15,12 @@
             Point4 = point4;
         }
 
-    public static double Distance(Point point1, Point point2)
+        public EquilateralTrapezoid()
+        {
+
+        }
+
+        public static double Distance(Point point1, Point point2)
         {
             var lengthInSquare = (point2.X - point1.X) * (point2.X - point1.X) + (point2.Y - point1.Y) * (point2.Y - point1.Y);
 
@@ -39,6 +44,7 @@
                 perimeter += Distance(points[i - 1], points[i]);
             }
             perimeter += Distance(points[points.Length - 1], points[0]);
+
             return perimeter;
         }
 

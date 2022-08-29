@@ -2,6 +2,7 @@
 using ConsoleApp10.Lesson3.Lesson3Animal;
 using ConsoleApp10.Lesson3.Lesson4;
 using ConsoleApp10.Lesson4;
+using ConsoleApp10.Lesson4.Student;
 
 namespace MyApp
 {
@@ -9,7 +10,6 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
-
             //var point1 = new Point(2, 1);
             //var point2 = new Point(2, 3);
             //var point3 = new Point(2, 4);
@@ -65,26 +65,23 @@ namespace MyApp
             //var arraySort = sort.GetRandomArray(5);
             //sort.BubbleSort(arraySort);
 
-            var point = new EquilateralTrapezoid();
-            var points = new EquilateralTrapezoid[] { new Point(1, 1), new Point(2, 3), new Point(4, 3), new Point(5, 1) };
-            var isEquilateralTrapezoid = point.IsEquilateralTrapezoid(points);
-            var perimeter = point.GetPerimeter(points);
-            Console.WriteLine(isEquilateralTrapezoid ? "Трапеция является равнобедренной" : "Трапеция не является равнобедренной");
-            Console.WriteLine($"Периметер трапеции равен: {perimeter}");
+            //var trapezoid = new EquilateralTrapezoid();
+            //var trapezoids = new EquilateralTrapezoid[]
+            //{
+            //        new EquilateralTrapezoid (new Point(1,1), new Point(2,3), new Point(4, 3), new Point(5, 1)),
+            //        new EquilateralTrapezoid (new Point(1,2), new Point(0,5), new Point(5, 5), new Point(4, 2)),
+            //        new EquilateralTrapezoid (new Point(3,1), new Point(1,6), new Point(7, 6), new Point(5, 1)),
+            //        new EquilateralTrapezoid (new Point(2,3), new Point(4,5), new Point(7, 5), new Point(8, 3)),
+            //        new EquilateralTrapezoid (new Point(2,3), new Point(1,7), new Point(8, 7), new Point(5, 3)),
+            //};
+            //var isEquilateralTrapezoid = trapezoid.IsEquilateralTrapezoid(trapezoids[0]);
+            //var perimeter = trapezoid.GetPerimeter(new Point[] { trapezoids[0].Point1, trapezoids[0].Point2, trapezoids[0].Point3, trapezoids[0].Point4 });
+            //Console.WriteLine(isEquilateralTrapezoid ? "Трапеция является равнобедренной" : "Трапеция не является равнобедренной");
+            //Console.WriteLine($"Периметер трапеции равен: {perimeter}");
+            //var count = EquilateralTrapezoid.GetTrapezoidsNumberWithSquareMoreThanAverage(trapezoids);
 
-
-            var trapezoids = new EquilateralTrapezoid[]
-            {
-                    new EquilateralTrapezoid (new Point(1,1), new Point(2,3), new Point(4, 3), new Point(5, 1)),
-                    new EquilateralTrapezoid (new Point(1,2), new Point(0,5), new Point(5, 5), new Point(4, 2)),
-                    new EquilateralTrapezoid (new Point(3,1), new Point(1,6), new Point(7, 6), new Point(5, 1)),
-                    new EquilateralTrapezoid (new Point(2,3), new Point(4,5), new Point(7, 5), new Point(8, 3)),
-                    new EquilateralTrapezoid (new Point(2,3), new Point(1,7), new Point(8, 7), new Point(5, 3)),
-            };
-
-            var count = EquilateralTrapezoid.GetTrapezoidsNumberWithSquareMoreThanAverage(trapezoids);
-
-
+            var student = new Student("A", "A", 2007);
+            var course = student.GetCourse();
         }
     }
 }
