@@ -10,14 +10,18 @@
 
         public Student(string name, string surName, uint years) : base(name, surName)
         {
-            Years = years;
+            if (years < (uint)DateTime.Now.Year)
+            {
+                Years = years;
+            }
+            else
+            Console.WriteLine("Неверный год");
         }
 
         public uint GetCourse()
         {
-            var course =  Math.Clamp((uint)DateTime.Now.Year - Years, 0, 7);
-
-            return course;
+            const int invalidInput = 7;
+            return Math.Clamp((uint)DateTime.Now.Year - Years, 0, invalidInput);
         }
     }
 }

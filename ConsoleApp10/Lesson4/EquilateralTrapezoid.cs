@@ -2,17 +2,20 @@
 {
      internal class EquilateralTrapezoid
     {
-        public Point Point1 { get; private set; }
-        public Point Point2 { get; private set; }
-        public Point Point3 { get; private set; }
-        public Point Point4 { get; private set; }
+        public Point[] Points { get; private set; }
 
-        public EquilateralTrapezoid(Point point1, Point point2, Point point3, Point point4)
+        public EquilateralTrapezoid(Point[] points)
         {
-            Point1 = point1;
-            Point2 = point2;
-            Point3 = point3;
-            Point4 = point4;
+            if (points.Length == 4)
+            {
+                Points[0] = points[0];
+                Points[1] = points[1];
+                Points[2] = points[2];
+                Points[3] = points[3];
+            }
+            else
+                Console.WriteLine("Объект трапеция должен содержать 4 точки");
+            
         }
 
         public EquilateralTrapezoid()
@@ -20,17 +23,10 @@
 
         }
 
-        public static double Distance(Point point1, Point point2)
+        public bool IsEquilateralTrapezoid(EquilateralTrapezoid equilateraltrapezoid)
         {
-            var lengthInSquare = (point2.X - point1.X) * (point2.X - point1.X) + (point2.Y - point1.Y) * (point2.Y - point1.Y);
-
-            return Math.Sqrt(lengthInSquare);
-        }
-
-        public bool IsEquilateralTrapezoid(EquilateralTrapezoid trapezoid)
-        {
-            var first = Distance(trapezoid.Point1, trapezoid.Point3);
-            var second = Distance(trapezoid.Point2, trapezoid.Point4);
+            var first = Point.Distance(equilateraltrapezoid.Points[0], equilateraltrapezoid.Points[2]);
+            var second = Point.Distance(equilateraltrapezoid.Points[1], equilateraltrapezoid.Points[3]);
 
             return first == second;
         }
@@ -41,19 +37,19 @@
 
             for (int i = 1; i < points.Length; i++)
             {
-                perimeter += Distance(points[i - 1], points[i]);
+                perimeter += Point.Distance(points[i - 1], points[i]);
             }
-            perimeter += Distance(points[points.Length - 1], points[0]);
+            perimeter += Point.Distance(points[points.Length - 1], points[0]);
 
             return perimeter;
         }
 
         public static double SquareTrapezium(EquilateralTrapezoid trapezoid)
         {
-            var length2 = Distance(trapezoid.Point2, trapezoid.Point3);
-            var length4 = Distance(trapezoid.Point4, trapezoid.Point1);
+            var length2 = Point.Distance(trapezoid.Points[1], trapezoid.Points[2]);
+            var length4 = Point.Distance(trapezoid.Points[3], trapezoid.Points[0]);
 
-            var height = trapezoid.Point2.Y - trapezoid.Point1.Y;
+            var height = trapezoid.Points[1].Y - trapezoid.Points[0].Y;
             var square = 0.5 * (length2 + length4) * height;
 
             return square;
@@ -86,6 +82,5 @@
 
             return trapeziesCount;
         }
-
     }
 }

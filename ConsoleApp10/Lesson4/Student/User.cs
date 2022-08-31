@@ -15,7 +15,7 @@
 
         public string FullName
         {
-            get { return $"{Name} {SurName}"; }
+            get => $"{Name} {SurName}";
         }
 
         public User (string name, string surName)
