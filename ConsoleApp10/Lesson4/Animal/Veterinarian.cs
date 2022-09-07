@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp10.Lesson4.Animal
+﻿namespace ConsoleApp10.Lesson4.Animal
 {
-    internal class Veterinarian : Animal
+    internal class Veterinarian
     {
-        public Animal[] Animals { get; private set; }
-
-        public Veterinarian(Animal[] animals)
-        {
-            Animals = animals;
-        }
+        public Animal[] Animals { get; set; }
 
         public void TreatAnimal(Animal animals)
         {

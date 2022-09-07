@@ -41,18 +41,29 @@
 
         public void MultiplayArray(int[,] arrayMatrix)
         {
-            var multiplayArray = new int[ArrayMatrix.GetLength(0), arrayMatrix.GetLength(1)];
-            Console.WriteLine("Произведение массивов:");
-            for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
+            if (arrayMatrix.GetLength(0) != ArrayMatrix.GetLength(1))
+            { 
+                Console.WriteLine("Матрицы перемножать нельзя");
+            }
+            else
             {
-                for (int j = 0; j < ArrayMatrix.GetLength(1); j++)
+                var multiplayArray = new int[ArrayMatrix.GetLength(0), arrayMatrix.GetLength(1)];
+                Console.WriteLine("Произведение массивов:");
+                for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
                 {
-                    multiplayArray[i, j] = ArrayMatrix[i, j] * arrayMatrix[i, j];
-                    Console.Write(multiplayArray[i, j] + " ");
+                    for (int j = 0; j < ArrayMatrix.GetLength(1); j++)
+                    {
+                        for (int k = 0; k < ArrayMatrix.GetLength(0); k++)
+                        {
+                            multiplayArray[i, j] = ArrayMatrix[i, j] * arrayMatrix[i, j];
+                            Console.Write(multiplayArray[i, j] + " ");
+
+                        }
+                    }
+                    Console.WriteLine();
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine();
         }
 
         public void MultiplayArrayByNumber(int number)

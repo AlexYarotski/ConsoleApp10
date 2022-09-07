@@ -18,9 +18,9 @@
             PositionHuman = position;
         }
 
-        public uint GetSalaryByMonths(uint salary, uint months)
+        public uint GetSalaryByMonths(uint months)
         {
-            return  salary * months;
+            return (uint)(Salary * months);
         }
 
     }

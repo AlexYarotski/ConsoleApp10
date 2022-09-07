@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp10.Lesson4.Animal
+﻿namespace ConsoleApp10.Lesson4.Animal
 {
     internal class Dog : Animal
     {
@@ -17,17 +11,20 @@ namespace ConsoleApp10.Lesson4.Animal
 
         public override void MakeNoise()
         {
+            base.MakeNoise();
             Console.WriteLine($"Я играю {_play} раза в день");
             Console.WriteLine("Я бываю громким");
         }
 
         public override void Eat()
         {
+            base.Eat();
             Console.WriteLine($"Ем {Food}");
         }
 
         public override void Sleep()
         {
+            base.Sleep();
             Console.WriteLine($"Сплю {Location}");
         }
     }

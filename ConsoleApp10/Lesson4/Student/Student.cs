@@ -2,6 +2,8 @@
 {
     internal class Student : User
     {
+        const int invalidInput = 7;
+
         public uint Years 
         { 
             get;
@@ -20,7 +22,6 @@
 
         public uint GetCourse()
         {
-            const int invalidInput = 7;
             return Math.Clamp((uint)DateTime.Now.Year - Years, 0, invalidInput);
         }
     }

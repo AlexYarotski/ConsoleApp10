@@ -4,6 +4,7 @@
 using ConsoleApp10.Lesson4;
 using ConsoleApp10.Lesson4.Animal;
 using ConsoleApp10.Lesson4.Student;
+using ConsoleApp10.Lesson5;
 
 namespace MyApp
 {
@@ -81,22 +82,24 @@ namespace MyApp
             //Console.WriteLine($"Периметер трапеции равен: {perimeter}");
             //var count = EquilateralTrapezoid.GetTrapezoidsNumberWithSquareMoreThanAverage(trapezoids);
 
-            //Animals kity = new Cat("Meat", "Home", "");
+            //Animal kity = new Cat("Meat", "Home", "острые");
             //kity.MakeNoise();
+            //kity.Eat();
 
             //Dog snoopy = new Dog("Bone", "Booth", 5);
             //snoopy.MakeNoise();
 
-            //Veterinarian vet = new Veterinarian(kity);
+            //Veterinarian vet = new Veterinarian();
             //vet.TreatAnimal(kity);
 
-            Veterinarian vet = new Veterinarian(new Animal[] { new Cat("Meat", "Home", ""), new Dog("Bone", "Booth", 4), new Horse("Hay", "Barn", 6) });
+            //var vetArray = new Veterinarian();
+            //vetArray.Animals = new Animal[] { new Cat("Meat", "Home", ""), new Dog("Bone", "Booth", 4), new Horse("Hay", "Barn", 6) };
 
+            //for (int i = 0; i < vet.Animals.Length; i++)
+            //{
+            //    vet.TreatAnimal(vet.Animals[i]);
+            //}
 
-            for (int i = 0; i < vet.Animals.Length; i++)
-            {
-                vet.TreatAnimal(vet.Animals[i]);
-            }
         }
     }
 }

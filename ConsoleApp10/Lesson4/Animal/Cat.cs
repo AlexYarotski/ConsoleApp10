@@ -11,17 +11,20 @@
 
         public override void MakeNoise()
         {
+            base.MakeNoise();
             Console.WriteLine($"У меня {_claws} когти");
             Console.WriteLine("Я тихий иногда");
         }
 
         public override void Eat()
         {
+            base.Eat();
             Console.WriteLine($"Ем {Food}");
         }
 
         public override void Sleep()
         {
+            base.Eat();
             Console.WriteLine($"Сплю {Location}");
         }
     }

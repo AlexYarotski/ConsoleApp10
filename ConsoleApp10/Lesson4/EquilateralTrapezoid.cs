@@ -8,10 +8,7 @@
         {
             if (points.Length == 4)
             {
-                Points[0] = points[0];
-                Points[1] = points[1];
-                Points[2] = points[2];
-                Points[3] = points[3];
+                Points = points;
             }
             else
                 Console.WriteLine("Объект трапеция должен содержать 4 точки");
@@ -31,15 +28,15 @@
             return first == second;
         }
 
-        public double GetPerimeter(Point[] points)
+        public double GetPerimeter()
         {
             var perimeter = 0.0;
 
-            for (int i = 1; i < points.Length; i++)
+            for (int i = 1; i < Points.Length; i++)
             {
-                perimeter += Point.Distance(points[i - 1], points[i]);
+                perimeter += Point.Distance(Points[i - 1], Points[i]);
             }
-            perimeter += Point.Distance(points[points.Length - 1], points[0]);
+            perimeter += Point.Distance(Points[Points.Length - 1], Points[0]);
 
             return perimeter;
         }
