@@ -104,8 +104,9 @@ namespace MyApp
             Lada lada = new Lada("Vesta", new Engene(2), "Red");
 
             Race race = new Race();
+            var cc = new Car[] { };
 
-            await race.StartRace(bmw, lada);
+           race.StartRace(new Car[] { bmw, lada });
 
         }
         

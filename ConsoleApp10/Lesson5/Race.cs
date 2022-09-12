@@ -1,22 +1,22 @@
 ﻿namespace ConsoleApp10.Lesson5
 {
-    internal class Race 
+    internal class Race
     {
-        public uint Time 
+        public uint Time
         {
             get;
             private set;
-        } 
+        }
 
         public uint Distance
         {
             get;
             private set;
         }
-   
+
         public IMovable[] Movables = null;
 
-        public Race (uint time = 20, uint distance = 25)
+        public Race(uint time = 20, uint distance = 25)
         {
             Time = time;
             Distance = distance;
@@ -24,26 +24,29 @@
 
         public async Task StartRace(Car[] car)
         {
-            for (uint i = 0, j = 0; (i <= Time && j <= Distance); i++, j++ )
+            for (uint i = 0, j = 0; (i <= Time || j <= Distance); i++, j++)
             {
-                var car1 = new string('-', (int)car[0].GetMoveDistance(i));
-                var car2 = new string('-', (int)car[1].GetMoveDistance(i));
+                string[] racingCar = new string[car.Length];
+
+                for (uint z = 0; z < racingCar.Length; z++)
+                {
+                    racingCar[z] = new('-', (int)car[z].GetMoveDistance(i));
+                }
 
                 if (i != Time)
                 {
-                    if ((int)car[0].GetMoveDistance(i) >= Distance || (int)car[1].GetMoveDistance(i) >= Distance)
+                    for (int w = 0; w < car.Length; w++)
                     {
-                        Console.WriteLine("FINISH!");
-                        Console.WriteLine((int)car[0].GetMoveDistance(i) >= Distance ? $"Winner {car[0].Name}" : $"Winner {car[1].Name}");
-                        break;
-                    }
-
-                    else
-                    {
-                        Console.WriteLine($"|{car1}{new string(' ', (int)Distance - car1.Length)}|");
-                        Console.WriteLine($"|{car2}{new string(' ', (int)Distance - car2.Length)}|");
-                        Thread.Sleep(1000);
-                        Console.Clear();
+                        if ((int)car[w].GetMoveDistance(i) >= Distance)
+                        {
+                            Console.WriteLine("FINISH!");
+                            Console.WriteLine($"Winner: {car[w].Name}");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"|{racingCar[w]}{new string(' ', (int)Distance - racingCar[w].Length)}|");
+                        }
                     }
                 }
 
