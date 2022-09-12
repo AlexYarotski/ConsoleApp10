@@ -1,21 +1,17 @@
 ﻿namespace ConsoleApp10.Lesson5
 {
-    internal class Engene : IMovable
+    internal class Engene
     {
-        public uint Horse
+        public uint HorsePower
         {
             get; 
             private set; 
         }
 
-        public Engene( uint horse) 
+        public Engene(uint horsePower) 
         {
-            Horse = horse;
+            HorsePower = horsePower;
         }
 
-        public uint GetMoveDistance(uint time)
-        {
-            return time * Horse;
-        }
     }
 }

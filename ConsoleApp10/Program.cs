@@ -10,7 +10,7 @@ namespace MyApp
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //var point1 = new Point(2, 1);
             //var point2 = new Point(2, 3);
@@ -100,6 +100,14 @@ namespace MyApp
             //    vet.TreatAnimal(vet.Animals[i]);
             //}
 
+            Bmw bmw = new Bmw("M5", new Engene(1), "Blue");
+            Lada lada = new Lada("Vesta", new Engene(2), "Red");
+
+            Race race = new Race();
+
+            await race.StartRace(bmw, lada);
+
         }
+        
     }
 }

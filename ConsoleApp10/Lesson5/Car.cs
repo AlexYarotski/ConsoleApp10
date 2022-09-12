@@ -1,19 +1,25 @@
 ﻿namespace ConsoleApp10.Lesson5
 {
-    internal abstract class Car
+    internal abstract class Car : IMovable
     {
-        Engene EngeneCar;
+        public Engene EngeneCar = null;
 
         public string Name
         {
             get;
-            set;
+            private set;
         }
 
         public Car(string name, Engene engeneCar)
         {
             Name = name;
             EngeneCar = engeneCar;
+        }
+
+
+        public uint GetMoveDistance(uint time)
+        {
+            return time * EngeneCar.HorsePower;
         }
     }
 }
