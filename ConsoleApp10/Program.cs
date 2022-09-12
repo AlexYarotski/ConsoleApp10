@@ -1,5 +1,6 @@
 ﻿using ConsoleApp10;
 using ConsoleApp10.Lesson3;
+using ConsoleApp10.Lesson3.Lesson4;
 
 namespace MyApp
 {
@@ -29,6 +30,15 @@ namespace MyApp
             employee.SetVacancies(Employee.Vacancies.Assistant);
             employee.Print();
 
+            var matrix1 = new Matrix(new int[2, 3]);
+            var matrix2 = new Matrix(new int[2, 3]);
+            matrix1.GetRandomArray();
+            matrix2.GetRandomArray();
+            var matrix3 = new Matrix(new int[2, 3]);
+            matrix3.SumArray(matrix1.ArrayMatrix, matrix2.ArrayMatrix);
+            matrix3.MultiplayArray(matrix1.ArrayMatrix, matrix2.ArrayMatrix);
+            Console.Write("Введите число: ");
+            matrix3.MultiplayArrayByNumber(matrix1.ArrayMatrix, Convert.ToInt32(Console.ReadLine()));
         }
     }
 }
