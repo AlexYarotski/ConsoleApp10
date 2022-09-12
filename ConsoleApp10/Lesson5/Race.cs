@@ -14,8 +14,6 @@
             private set;
         }
 
-        public IMovable[] Movables = null;
-
         public Race(uint time = 20, uint distance = 25)
         {
             Time = time;
