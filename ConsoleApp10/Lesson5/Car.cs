@@ -17,7 +17,7 @@
         }
 
 
-        public uint GetMoveDistance(uint time)
+        public float GetMoveDistance(float time)
         {
             return time * EngeneCar.HorsePower;
         }

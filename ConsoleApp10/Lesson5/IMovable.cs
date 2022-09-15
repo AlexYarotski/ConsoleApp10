@@ -2,6 +2,6 @@
 {
     internal interface IMovable 
     {
-        public uint GetMoveDistance(uint time);
+        public float GetMoveDistance(float time);
     }
 }
