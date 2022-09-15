@@ -29,7 +29,7 @@
 
         public void SumArray(int[,] arrayMatrix1, int[,] arrayMatrix2)
         {
-            var sumArray = new int[ArrayMatrix.GetLength(0), arrayMatrix.GetLength(1)];
+            var sumArray = new int[ArrayMatrix.GetLength(0), arrayMatrix1.GetLength(1)];
             Console.WriteLine("Сумма массивов:");
             for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
             {
@@ -45,7 +45,7 @@
 
         public void MultiplayArray(int[,] arrayMatrix1, int[,] arrayMatrix2)
         {
-                var multiplayArray = new int[ArrayMatrix.GetLength(0), arrayMatrix.GetLength(1)];
+                var multiplayArray = new int[ArrayMatrix.GetLength(0), arrayMatrix1.GetLength(1)];
             Console.WriteLine("Произведение массивов:");
             for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
             {
@@ -58,7 +58,7 @@
             }
             Console.WriteLine();
         }
-        }
+    
 
         public void MultiplayArrayByNumber(int[,] arrayMatrix1, int number)
         {
