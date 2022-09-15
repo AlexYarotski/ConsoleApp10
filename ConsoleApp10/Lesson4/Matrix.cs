@@ -8,65 +8,59 @@
             private set; 
         }
 
+        private int _rowCount;
+
         public int RowCount
         {
-           get => ArrayMatrix.GetLength(0);
-        } 
+            get { return ArrayMatrix.GetLength(0); }
+        }
+
+        private int _columnCount;
 
         public int ColumnCount
         {
-           get => ArrayMatrix.GetLength(1);
-        } 
+            get { return ArrayMatrix.GetLength(1); }
+        }
 
         public Matrix(int[,] arrayMatrix)
         {
             ArrayMatrix = arrayMatrix;
         }
 
-        public void SumArray(int[,] arrayMatrix)
+        public void SumArray(int[,] arrayMatrix1, int[,] arrayMatrix2)
         {
             var sumArray = new int[ArrayMatrix.GetLength(0), arrayMatrix.GetLength(1)];
             Console.WriteLine("Сумма массивов:");
-            for (int i = 0; i < RowCount; i++)
+            for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
             {
-                for (int j = 0; j < ColumnCount; j++)
+                for (int j = 0; j < ArrayMatrix.GetLength(1); j++)
                 {
-                    sumArray[i,j] =  arrayMatrix[i,j] + ArrayMatrix[i,j];
-                    Console.Write(sumArray[i, j] + " ");
+                    ArrayMatrix[i,j] =  arrayMatrix1[i,j] + arrayMatrix2[i,j];
+                    Console.Write(ArrayMatrix[i, j] + " ");
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
 
-        public void MultiplayArray(int[,] arrayMatrix)
+        public void MultiplayArray(int[,] arrayMatrix1, int[,] arrayMatrix2)
         {
-            if (arrayMatrix.GetLength(0) != ArrayMatrix.GetLength(1))
-            { 
-                Console.WriteLine("Матрицы перемножать нельзя");
-            }
-            else
-            {
                 var multiplayArray = new int[ArrayMatrix.GetLength(0), arrayMatrix.GetLength(1)];
-                Console.WriteLine("Произведение массивов:");
-                for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
+            Console.WriteLine("Произведение массивов:");
+            for (int i = 0; i < ArrayMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < ArrayMatrix.GetLength(1); j++)
                 {
-                    for (int j = 0; j < ArrayMatrix.GetLength(1); j++)
-                    {
-                        for (int k = 0; k < ArrayMatrix.GetLength(0); k++)
-                        {
-                            multiplayArray[i, j] = ArrayMatrix[i, j] * arrayMatrix[i, j];
-                            Console.Write(multiplayArray[i, j] + " ");
-
-                        }
-                    }
-                    Console.WriteLine();
+                    ArrayMatrix[i, j] = arrayMatrix1[i, j] * arrayMatrix2[i, j];
+                    Console.Write(ArrayMatrix[i, j] + " ");
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine();
+        }
         }
 
-        public void MultiplayArrayByNumber(int number)
+        public void MultiplayArrayByNumber(int[,] arrayMatrix1, int number)
         {
             var multiplayArrayByNumber = new int[ArrayMatrix.GetLength(0), ArrayMatrix.GetLength(1)];
             Console.WriteLine($"Произведение массива на число {number}:");
@@ -74,8 +68,8 @@
             {
                 for (int j = 0; j < ArrayMatrix.GetLength(1); j++)
                 {
-                    multiplayArrayByNumber[i, j] = ArrayMatrix[i, j] * number;
-                    Console.Write(multiplayArrayByNumber[i, j] + " ");
+                    ArrayMatrix[i, j] = arrayMatrix1[i, j] * number;
+                    Console.Write(ArrayMatrix[i, j] + " ");
                 }
                 Console.WriteLine();
             }

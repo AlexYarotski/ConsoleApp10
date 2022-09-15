@@ -1,10 +1,5 @@
-﻿//using ConsoleApp10;
-//using ConsoleApp10.Lesson3.Lesson3Animal;
-//using ConsoleApp10.Lesson3.Lesson4;
-using ConsoleApp10.Lesson4;
-using ConsoleApp10.Lesson4.Animal;
-using ConsoleApp10.Lesson4.Student;
-using ConsoleApp10.Lesson5;
+﻿using ConsoleApp10;
+using ConsoleApp10.Lesson3;
 
 namespace MyApp
 {
