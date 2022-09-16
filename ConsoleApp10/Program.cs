@@ -96,12 +96,12 @@ namespace MyApp
             //    vet.TreatAnimal(vet.Animals[i]);
             //}
 
-            Bmw bmw1 = new Bmw("M5", new Engene(1), "Blue");
-            Bmw bmw2 = new Bmw("M5", new Engene(3), "Blue");
-            Bmw bmw3 = new Bmw("M5", new Engene(4), "Blue");
-            Lada lada1 = new Lada("Vesta", new Engene(2), "Red");
-            Lada lada2 = new Lada("Vesta", new Engene(5), "Red");
-            Lada lada3 = new Lada("Vesta", new Engene(3), "Red");
+            Bmw bmw1 = new Bmw("M5", new Engene(3, 6), "Blue");
+            Bmw bmw2 = new Bmw("M5", new Engene(2, 4), "Blue");
+            Bmw bmw3 = new Bmw("M5", new Engene(3, 4), "Blue");
+            Lada lada1 = new Lada("Vesta", new Engene(3, 3), "Red");
+            Lada lada2 = new Lada("Vesta", new Engene(2, 10), "Red");
+            Lada lada3 = new Lada("Vesta", new Engene(1, 5), "Red");
 
             Race race = new Race();
             var movebles = await race.StartRace(new Car[] { bmw1, bmw2, bmw3, lada1, lada2, lada3 }, 0.2f);

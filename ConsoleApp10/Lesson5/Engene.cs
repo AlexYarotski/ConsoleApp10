@@ -8,9 +8,16 @@
             private set; 
         }
 
-        public Engene(uint horsePower) 
+        public uint AccelerationTime
+        {
+            get;
+            private set;
+        }
+
+        public Engene(uint horsePower, uint accelerationTime)
         {
             HorsePower = horsePower;
+            AccelerationTime = accelerationTime;
         }
     }
 }

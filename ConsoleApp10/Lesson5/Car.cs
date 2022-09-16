@@ -16,10 +16,17 @@
             EngeneCar = engeneCar;
         }
 
-
-        public float GetMoveDistance(float time)
+        static float temp = 0;
+        public float GetMoveDistance(float time, bool isCheck = false)
         {
-            return time * EngeneCar.HorsePower;
+            var currentDistance = time < EngeneCar.AccelerationTime ? (float)EngeneCar.HorsePower / (float)EngeneCar.AccelerationTime * time : (float)EngeneCar.HorsePower;
+
+            if (!isCheck)
+            {
+                temp += currentDistance;
+            }
+
+            return temp;
         }
     }
 }

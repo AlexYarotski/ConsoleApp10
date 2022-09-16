@@ -62,7 +62,7 @@
         {
             for (int i = 0; i < movables.Length; i++)
             {
-                if (movables[i].GetMoveDistance(time) < Distance)
+                if (movables[i].GetMoveDistance(time, true) < Distance)
                 {
                     return false;
                 }
