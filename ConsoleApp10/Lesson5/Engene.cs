@@ -2,19 +2,19 @@
 {
     internal class Engene
     {
-        public uint HorsePower
+        public int HorsePower
         {
             get; 
             private set; 
         }
 
-        public uint AccelerationTime
+        public int AccelerationTime
         {
             get;
             private set;
         }
 
-        public Engene(uint horsePower, uint accelerationTime)
+        public Engene(int horsePower, int accelerationTime)
         {
             HorsePower = horsePower;
             AccelerationTime = accelerationTime;

@@ -2,13 +2,13 @@
 {
     internal class Bmw : Car
     {
-        public string Color 
+        public Enum Color 
         {
             get; 
             private set;
         }
 
-        public Bmw(string name, Engene engeneCar, string color) : base(name, engeneCar)
+        public Bmw(string name, Engene engeneCar, Enum color) : base(name, engeneCar)
         {
             Color = color;
         }

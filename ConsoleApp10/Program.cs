@@ -96,15 +96,15 @@ namespace MyApp
             //    vet.TreatAnimal(vet.Animals[i]);
             //}
 
-            Bmw bmw1 = new Bmw("M5", new Engene(3, 6), "Blue");
-            Bmw bmw2 = new Bmw("M5", new Engene(2, 4), "Blue");
-            Bmw bmw3 = new Bmw("M5", new Engene(3, 4), "Blue");
-            Lada lada1 = new Lada("Vesta", new Engene(3, 3), "Red");
-            Lada lada2 = new Lada("Vesta", new Engene(2, 10), "Red");
-            Lada lada3 = new Lada("Vesta", new Engene(1, 5), "Red");
+            Bmw bmw1 = new Bmw("M5", new Engene(3, 6), Colors.Gray);
+            Bmw bmw2 = new Bmw("M8", new Engene(2, 4), Colors.Blue);
+            Bmw bmw3 = new Bmw("M100", new Engene(3, 4), Colors.Yellow);
+            Lada lada1 = new Lada("Granta", new Engene(3, 3), Colors.Red);
+            Lada lada2 = new Lada("Vesta", new Engene(2, 10), Colors.Yellow);
+            Car[] cars = new Car[] { bmw1, bmw2, bmw3, lada1, lada2 };
 
             Race race = new Race();
-            var movebles = await race.StartRace(new Car[] { bmw1, bmw2, bmw3, lada1, lada2, lada3 }, 0.2f);
+            var movebles = await race.StartRace(cars , 0.2f);
 
             for (int i = 0; i < movebles.Length; i++)
             {
