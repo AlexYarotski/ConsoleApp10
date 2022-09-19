@@ -103,6 +103,7 @@
             {
                 case 1:
                     IMovable[] addingCarArray = new IMovable[movables.Length + 1];
+                    Colors color = new Colors();
 
                     for (int i = 0; i < movables.Length; i++)
                     {
@@ -127,24 +128,21 @@
                         case 1:
                             Console.Write("Enter your name: ");
                             string nameLada = Console.ReadLine();
+                            Console.WriteLine();
 
                             Console.Write("Enter horsepower: ");
                             int horsePowerLada = InputCheck(Console.ReadLine());
+                            Console.WriteLine();
 
                             Console.Write("Enter acceleration time: ");
                             int accelerationTimeLada = InputCheck(Console.ReadLine());
+                            Console.WriteLine();
 
                             Console.WriteLine("Choose a color: ");
-                            Console.WriteLine($"{Colors.Green} \r\n {Colors.Red} \r\n {Colors.Blue} \r\n {Colors.Gray} \r\n {Colors.Yellow}");
-                            Colors colorLada = Colors.Green;
+                            Colors colorLada = InputColor(color);
+                            Console.WriteLine();
 
-                            //while (colorLada != "Green" || colorLada != "Red" || colorLada != "Blue" || colorLada != "Green" || colorLada != "Yellow")
-                            //{
-                            //    Console.WriteLine("Choose an existing color!");
-                            //    colorLada = Console.ReadLine();
-                            //}
-
-                            Lada newLada = new Lada(nameLada, new Engene(horsePowerLada, accelerationTimeLada), Colors.Gray);
+                            Lada newLada = new Lada(nameLada, new Engene(horsePowerLada, accelerationTimeLada), colorLada);
 
                             for (int i = addingCarArray.Length - 1; i < addingCarArray.Length; i++)
                             {
@@ -156,23 +154,21 @@
                         case 2:
                             Console.Write("Enter your name: ");
                             string nameBmw = Console.ReadLine();
+                            Console.WriteLine();
 
                             Console.Write("Enter horsepower: ");
                             int horsePowerBmw = InputCheck(Console.ReadLine());
+                            Console.WriteLine();
 
                             Console.Write("Enter acceleration time: ");
                             int accelerationTimeBmw = InputCheck(Console.ReadLine());
+                            Console.WriteLine();
 
                             Console.WriteLine("Choose a color:");
-                            
+                            Colors colorBmw = InputColor(color);
+                            Console.WriteLine();
 
-                            //while (colorBmw != "Green" || colorBmw != "Red" || colorBmw != "Blue" || colorBmw != "Green" || colorBmw != "Yellow")
-                            //{
-                            //    Console.WriteLine("Choose an existing color!");
-                            //    colorBmw = Console.ReadLine();
-                            //}
-
-                            Bmw newBmw = new Bmw(nameBmw, new Engene(horsePowerBmw, accelerationTimeBmw), Colors.Red);
+                            Bmw newBmw = new Bmw(nameBmw, new Engene(horsePowerBmw, accelerationTimeBmw), colorBmw);
 
                             for (int i = addingCarArray.Length - 1; i < addingCarArray.Length; i++)
                             {
@@ -226,11 +222,12 @@
             Console.WriteLine("1 - Add car");
             Console.WriteLine("2 - Remove car");
             Console.WriteLine("3 - Start race");
+            Console.WriteLine("4 - View members");
 
             string strNumber = Console.ReadLine();
             int number;
             bool isNumber = int.TryParse(strNumber, out number);
-            while (number <= 0 || number > 3 || strNumber == string.Empty)
+            while (number <= 0 || number > 4 || strNumber == string.Empty)
             {
                 Console.Write("Enter a number from 1 to 3: ");
                 number = Convert.ToInt32(Console.ReadLine());
@@ -253,14 +250,29 @@
             return number;
         }
 
-        public static Colors InputColor(Colors)
+        public static Colors InputColor(Colors color)
         {
+            int number = 1;
             foreach (Colors colors in Enum.GetValues(typeof(Colors)))
             {
-                int i = 1;
-                i++;
-                Console.WriteLine($"{colors} - {i}");
+                Console.WriteLine($"{colors} - {number}");
+                number++;
             }
+
+            string numColor = Console.ReadLine();
+            int num = InputCheck(numColor);
+
+            foreach (Colors colors in Enum.GetValues(typeof(Colors)))
+            {
+                if (number == num)
+                {
+                    Console.WriteLine($"You choosed {colors} colors");
+                    color = colors;
+                    break;
+                }
+                number--;
+            }
+
             return color;
         }
     }
