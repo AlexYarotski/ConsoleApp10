@@ -129,30 +129,10 @@
                             string nameLada = Console.ReadLine();
 
                             Console.Write("Enter horsepower: ");
-                            string strHorseLada = Console.ReadLine();
-                            int horsePowerLada;
-                            bool isNumHorseLada = int.TryParse(strHorseLada, out horsePowerLada);
-                            {
-                                while (isNumHorseLada == false || horsePowerLada <= 0 || strHorseLada == string.Empty)
-                                {
-                                    Console.WriteLine("Please enter a positive number!");
-                                    strHorseLada = Console.ReadLine();
-                                    isNumHorseLada = int.TryParse(strHorseLada, out horsePowerLada);
-                                }
-                            }
+                            int horsePowerLada = InputCheck(Console.ReadLine());
 
                             Console.Write("Enter acceleration time: ");
-                            string strAccelerationLada = Console.ReadLine();
-                            int accelerationTimeLada;
-                            bool isNumAccelerationLada = int.TryParse(strAccelerationLada, out accelerationTimeLada);
-                            {
-                                while (isNumAccelerationLada == false || accelerationTimeLada <= 0 || strAccelerationLada == string.Empty)
-                                {
-                                    Console.WriteLine("Please enter a positive number!");
-                                    strAccelerationLada = Console.ReadLine();
-                                    isNumAccelerationLada = int.TryParse(strAccelerationLada, out accelerationTimeLada);
-                                }
-                            }
+                            int accelerationTimeLada = InputCheck(Console.ReadLine());
 
                             Console.WriteLine("Choose a color: ");
                             Console.WriteLine($"{Colors.Green} \r\n {Colors.Red} \r\n {Colors.Blue} \r\n {Colors.Gray} \r\n {Colors.Yellow}");
@@ -178,36 +158,13 @@
                             string nameBmw = Console.ReadLine();
 
                             Console.Write("Enter horsepower: ");
-
-                            string strHorseBmw = Console.ReadLine();
-                            int horsePowerBmw;
-                            bool isNumHorseBmw = int.TryParse(strHorseBmw, out horsePowerBmw);
-                            {
-                                while (isNumHorseBmw == false || horsePowerBmw <= 0 || strHorseBmw == string.Empty)
-                                {
-                                    Console.WriteLine("Please enter a positive number!");
-                                    strHorseBmw = Console.ReadLine();
-                                    isNumHorseBmw = int.TryParse(strHorseBmw, out horsePowerBmw);
-                                }
-                            }
+                            int horsePowerBmw = InputCheck(Console.ReadLine());
 
                             Console.Write("Enter acceleration time: ");
+                            int accelerationTimeBmw = InputCheck(Console.ReadLine());
 
-                            string strAccelerationBmw = Console.ReadLine();
-                            int accelerationTimeBmw;
-                            bool isNumAccelerationBmw = int.TryParse(strAccelerationBmw, out accelerationTimeBmw);
-                            {
-                                while (isNumAccelerationBmw == false || accelerationTimeBmw <= 0 || strAccelerationBmw == string.Empty)
-                                {
-                                    Console.WriteLine("Please enter a positive number!");
-                                    strAccelerationBmw = Console.ReadLine();
-                                    isNumAccelerationBmw = int.TryParse(strAccelerationBmw, out accelerationTimeBmw);
-                                }
-                            }
-
-                            Console.WriteLine("Choose a color: ");
-                            Console.WriteLine($"{Colors.Green} \r\n {Colors.Red} \r\n {Colors.Blue} \r\n {Colors.Gray} \r\n {Colors.Yellow}");
-                            Colors colorBmw = Colors.Green;
+                            Console.WriteLine("Choose a color:");
+                            
 
                             //while (colorBmw != "Green" || colorBmw != "Red" || colorBmw != "Blue" || colorBmw != "Green" || colorBmw != "Yellow")
                             //{
@@ -228,7 +185,6 @@
                             break;
                     }
                     return movables = addingCarArray;
-                    break;
             }
 
             return movables;
@@ -281,6 +237,31 @@
             }
 
             return number;
+        }
+
+        public static int InputCheck(string input)
+        {
+            int number;
+            bool isNumber = int.TryParse(input, out number);
+            while (isNumber == false || number <= 0 || input == string.Empty)
+            {
+                Console.WriteLine("Please enter a positive number!");
+                input = Console.ReadLine();
+                isNumber = int.TryParse(input, out number);
+            }
+
+            return number;
+        }
+
+        public static Colors InputColor(Colors)
+        {
+            foreach (Colors colors in Enum.GetValues(typeof(Colors)))
+            {
+                int i = 1;
+                i++;
+                Console.WriteLine($"{colors} - {i}");
+            }
+            return color;
         }
     }
 }
