@@ -86,8 +86,10 @@
             Console.WriteLine("2 - Remove car");
             Console.WriteLine("3 - Start race");
 
-            int number = Convert.ToInt32(Console.ReadLine());
-            while (number <= 0 || number > 3)
+            string strNumber = Console.ReadLine();
+            int number;
+            bool isNumber = int.TryParse(strNumber, out number);
+            while (number <= 0 || number > 3 || strNumber == string.Empty)
             {
                 Console.Write("Enter a number from 1 to 3: ");
                 number = Convert.ToInt32(Console.ReadLine());
@@ -127,7 +129,7 @@
                             int horsePowerLada;
                             bool isNumHorseLada = int.TryParse(strHorseLada, out horsePowerLada);
                             {
-                                while (isNumHorseLada == false || horsePowerLada <= 0)
+                                while (isNumHorseLada == false || horsePowerLada <= 0 || strHorseLada == string.Empty)
                                 {
                                     Console.WriteLine("Please enter a positive number!");
                                     strHorseLada = Console.ReadLine();
@@ -140,7 +142,7 @@
                             int accelerationTimeLada;
                             bool isNumAccelerationLada = int.TryParse(strAccelerationLada, out accelerationTimeLada);
                             {
-                                while(isNumAccelerationLada == false || accelerationTimeLada <= 0)
+                                while(isNumAccelerationLada == false || accelerationTimeLada <= 0 || strAccelerationLada == string.Empty)
                                 {
                                     Console.WriteLine("Please enter a positive number!");
                                     strAccelerationLada = Console.ReadLine();
@@ -177,7 +179,7 @@
                             int horsePowerBmw;
                             bool isNumHorseBmw = int.TryParse(strHorseBmw, out horsePowerBmw);
                             {
-                                while (isNumHorseBmw == false || horsePowerBmw <= 0)
+                                while (isNumHorseBmw == false || horsePowerBmw <= 0 || strHorseBmw == string.Empty)
                                 {
                                     Console.WriteLine("Please enter a positive number!");
                                     strHorseBmw = Console.ReadLine();
@@ -191,9 +193,12 @@
                             int accelerationTimeBmw;
                             bool isNumAccelerationBmw = int.TryParse(strAccelerationBmw, out accelerationTimeBmw);
                             {
-                                Console.WriteLine("Please enter a positive number!");
-                                strAccelerationBmw = Console.ReadLine();
-                                isNumAccelerationBmw = int.TryParse(strAccelerationBmw, out accelerationTimeBmw);
+                                while (isNumAccelerationBmw == false || accelerationTimeBmw <= 0 || strAccelerationBmw == string.Empty)
+                                {
+                                    Console.WriteLine("Please enter a positive number!");
+                                    strAccelerationBmw = Console.ReadLine();
+                                    isNumAccelerationBmw = int.TryParse(strAccelerationBmw, out accelerationTimeBmw);
+                                }
                             }
 
                             Console.WriteLine("Choose a color: ");
@@ -227,14 +232,19 @@
                     Console.WriteLine("What car do you want to delete?");
                     int numDeleteCar = Convert.ToInt32(Console.ReadLine());
 
-                    for (int i = 0; i < movables.Length; i++)
+                    for (int i = 0, j = 0; i < movables.Length; i++)
                     {
                         if (numDeleteCar - 1 != i)
                         {
-                            deleteCarArray[i] = movables[i];
+                            deleteCarArray[j] = movables[i];
+                            j++;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"You deleted: {movables[i].GetType().Name}");
                         }
                     }
-
+                    
                     return deleteCarArray;
                     break;
 
