@@ -18,22 +18,17 @@
 
         }
 
-        public override IMovable[] AddCar(IMovable[] movables)
+        public override void Setup()
         {
-            IMovable[] newCarArray = base.AddCar(movables);
-            Lada newCar = ((Lada)newCarArray[newCarArray.Length - 1]);
+            base.Setup();
             Colors color = new Colors();
-            Colors colorLada = InputColor(color);
-
             Console.WriteLine("Choose a color:");
+            Colors colorLada = Input.InputColor(color);
 
-            Lada newLada = new Lada(newCar.Name, new Engene(newCar.EngeneCar.HorsePower, newCar.EngeneCar.AccelerationTime), colorLada);
+            Lada newLada = new Lada(Name, new Engene(Engene.HorsePower, Engene.AccelerationTime), colorLada);
 
-            newCarArray[newCarArray.Length - 1] = newLada;
-            Console.Write($"You added: {newLada.GetType().Name} \r\n Name: {newCar.Name} \r\n Horse Power: {newCar.EngeneCar.HorsePower} \r\n Acceleration Time{newCar.EngeneCar.AccelerationTime} \r\n Colors: {Colors.Red}");
+            Console.Write($"You added: {newLada.GetType().Name} \r\n Name: {Name} \r\n Horse Power: {Engene.HorsePower} \r\n Acceleration Time{Engene.AccelerationTime} \r\n Colors: {colorLada}");
             Console.WriteLine();
-
-            return newCarArray;
         }
     }
 }

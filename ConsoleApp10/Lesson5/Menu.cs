@@ -12,11 +12,11 @@
                 switch (number)
                 {
                     case 1:
-                        movables = Menu.MenuAddCar(number, movables);
+                        movables = MenuAddCar(number, movables);
                         break;
 
                     case 2:
-                        movables = Car.DeleteCar(movables);
+                        movables = DeleteCar(movables);
                         break;
                 }
             }
@@ -83,12 +83,15 @@
             {
                 case 1:
                     Lada lada = new Lada();
-                    lada.AddCar(movables);
+                    lada.Setup();
+                    movables = AddCar(movables, lada);
+
                     break;
 
                 case 2:
                     Bmw bmw = new Bmw();
-                    bmw.AddCar(movables);
+                    bmw.Setup();
+                    movables = AddCar(movables, bmw);
                     break;
 
                 case 0:
@@ -97,6 +100,46 @@
             }
 
             return movables;
+        }
+
+        public static IMovable[] DeleteCar(IMovable[] movables)
+        {
+            IMovable[] deleteCarArray = new IMovable[movables.Length - 1];
+
+            Console.WriteLine("What car do you want to delete?");
+            int numDeleteCar = Convert.ToInt32(Console.ReadLine());
+            while (numDeleteCar > movables.Length || numDeleteCar < 0)
+            {
+                Console.WriteLine("Please enter a positive number!");
+                numDeleteCar = Convert.ToInt32(Console.ReadLine());
+            }
+
+            for (int i = 0, j = 0; i < movables.Length; i++)
+            {
+                if (numDeleteCar - 1 != i)
+                {
+                    deleteCarArray[j] = movables[i];
+                    j++;
+                }
+                else
+                {
+                    Console.WriteLine($"You deleted: {movables[i].GetType().Name}");
+                }
+            }
+
+            return deleteCarArray;
+        }
+
+        public static IMovable[] AddCar(IMovable[] movables, IMovable movable)
+        {
+            IMovable[] newMovables = new IMovable[movables.Length + 1];
+            for (int i = 0; i < movables.Length; i++)
+            {
+                newMovables[i] = movables[i];
+            }
+            newMovables[newMovables.Length - 1] = movable;
+            
+            return newMovables;
         }
     }
 }

@@ -5,19 +5,24 @@
         public int HorsePower
         {
             get; 
-            private set; 
+            set; 
         }
 
         public int AccelerationTime
         {
             get;
-            private set;
+            set;
         }
 
         public Engene(int horsePower, int accelerationTime)
         {
             HorsePower = horsePower;
             AccelerationTime = accelerationTime;
+        }
+
+        public Engene()
+        {
+
         }
     }
 }
