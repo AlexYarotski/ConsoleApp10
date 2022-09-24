@@ -59,8 +59,8 @@
 
             for (int i = 0; i < movables.Length; i++)
             {
-                IMovable winners = movables[i];
-                Console.WriteLine($"{i + 1} place: {winners.GetType().Name} Name: {((Car)winners).Name} HorsePower: {((Car)winners).Engene.HorsePower} AccelerationTime: {((Car)winners).Engene.AccelerationTime} Color: {  }");
+                Console.WriteLine($"{i + 1} place: {movables[i].GetType().Name} \r\nName: {((Car)movables[i]).Name} \r\nHorsePower: {((Car)movables[i]).Engene.HorsePower} \r\nAccelerationTime: {((Car)movables[i]).Engene.AccelerationTime} \r\nColor: ");
+                Console.WriteLine("");
             }
 
             return movables;
