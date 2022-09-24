@@ -12,10 +12,15 @@ namespace ConsoleApp10.Lesson5
         {
             int number = 1;
             var colors = (Colors[])Enum.GetValues(typeof(Colors));
+
+            Console.WriteLine("");
+
             for (int i = 1; i <= colors.Length; i++)
             {
                 Console.WriteLine($"{colors[i - 1]} - {i}");
             }
+
+            Console.Write("Choose a color: ");
 
             string numColor = Console.ReadLine();
             int num = InputCheck(numColor);
@@ -28,6 +33,7 @@ namespace ConsoleApp10.Lesson5
                     color = colors[i - 1];
                 }
             }
+            
 
             return color;
         }

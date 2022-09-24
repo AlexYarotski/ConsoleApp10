@@ -22,13 +22,11 @@
         {
             base.Setup();
             Colors color = new Colors();
-            Console.WriteLine("Choose a color:");
             Colors colorLada = Input.InputColor(color);
 
-            Lada newLada = new Lada(Name, new Engene(Engene.HorsePower, Engene.AccelerationTime), colorLada);
-
-            Console.Write($"You added: {newLada.GetType().Name} \r\n Name: {Name} \r\n Horse Power: {Engene.HorsePower} \r\n Acceleration Time{Engene.AccelerationTime} \r\n Colors: {colorLada}");
-            Console.WriteLine();
+            Console.WriteLine("");
+            Console.Write($"You added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {Engene.HorsePower} \r\nAcceleration Time{Engene.AccelerationTime} \r\nColors: {colorLada} \r\n");
+            Console.WriteLine("");
         }
     }
 }

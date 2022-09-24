@@ -2,7 +2,8 @@
 {
     internal abstract class Car : IMovable
     {
-        public Engene Engene = new Engene();
+        public Engene Engene = null;
+        private float _distance = 0;
 
         public string Name
         {
@@ -23,19 +24,20 @@
 
         public float GetMoveDistance(float time, bool isCheck = false)
         {
-            float distance = 0;
-            var currentDistance = time < Engene.AccelerationTime ? (float)Engene.HorsePower / (float)Engene.AccelerationTime * time : (float)Engene.HorsePower;
+            float currentDistance = time < Engene.AccelerationTime ? (float)Engene.HorsePower / (float)Engene.AccelerationTime * time : (float)Engene.HorsePower;
 
             if (!isCheck)
             {
-                distance += currentDistance;
+                _distance += currentDistance;
             }
 
-            return distance;
+            return _distance;
         }
 
         public virtual void Setup()
         {
+            Engene = new Engene();
+
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
             while (name == string.Empty)
