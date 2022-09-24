@@ -24,11 +24,9 @@
         {
             movables = Menu.MenuRaceSummary(movables);
             string[] racingCar = new string[movables.Length];
-
+            
             for (float i = 0; !IsAllFinished(movables, i); i += refreshDelay)
             {
-                Console.Clear();
-
                 for (uint z = 0; z < racingCar.Length; z++)
                 {
                     racingCar[z] = new('-', Math.Clamp((int)movables[z].GetMoveDistance(i), 0, Distance));
@@ -38,7 +36,9 @@
                 {
                     Console.WriteLine($"|{racingCar[w]}{new string(' ', Math.Clamp(Distance - racingCar[w].Length, 0, Distance))}|");
                 }
+
                 await Task.Delay((int)(refreshDelay * 1000));
+                Console.Clear();
             }
 
             int[] index = new int[movables.Length];
@@ -55,6 +55,12 @@
                         movables[j + 1] = temp;
                     }
                 }
+            }
+
+            for (int i = 0; i < movables.Length; i++)
+            {
+                IMovable winners = movables[i];
+                Console.WriteLine($"{i + 1} place: {winners.GetType().Name} Name: {((Car)winners).Name} HorsePower: {((Car)winners).Engene.HorsePower} AccelerationTime: {((Car)winners).Engene.AccelerationTime} Color: {  }");
             }
 
             return movables;

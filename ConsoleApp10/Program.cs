@@ -99,7 +99,7 @@ namespace MyApp
             Bmw bmw1 = new Bmw("M5", new Engene(3, 2), Colors.Gray);
             //Bmw bmw2 = new Bmw("M8", new Engene(2, 4), Colors.Blue);
             //Bmw bmw3 = new Bmw("M100", new Engene(3, 4), Colors.Yellow);
-            Lada lada1 = new Lada("Granta", new Engene(3, 3), Colors.Red);
+            Lada lada1 = new Lada("Granta", new Engene(5, 3), Colors.Red);
             //Lada lada2 = new Lada("Vesta", new Engene(2, 10), Colors.Yellow);
             Car[] cars = new Car[] { bmw1, lada1/*, bmw3, lada1, lada2*/ };
 
