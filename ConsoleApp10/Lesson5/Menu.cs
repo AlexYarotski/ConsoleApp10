@@ -2,7 +2,7 @@
 {
     internal class Menu
     {
-        public static IMovable[] MenuRaceSummary(IMovable[] movables)
+        public IMovable[] MenuRaceSummary(IMovable[] movables)
         {
             Menu menu = new Menu();
             int number = 0;

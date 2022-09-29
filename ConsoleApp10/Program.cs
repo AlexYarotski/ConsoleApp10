@@ -103,9 +103,10 @@ namespace MyApp
             //Lada lada2 = new Lada("Vesta", new Engene(2, 10), Colors.Yellow);
 
             Race race = new Race();
+            Menu menu = new Menu();
 
             IMovable[] movable = new IMovable[] { /*lada1,*/ bmw1 };
-            IMovable[] movables = Menu.MenuRaceSummary(movable);
+            IMovable[] movables = menu.MenuRaceSummary(movable);
             movables = await race.StartRace(movables, 1f);
 
         }

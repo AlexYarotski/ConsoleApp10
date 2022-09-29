@@ -2,11 +2,6 @@
 {
     internal class Race
     {
-        public uint Time
-        {
-            get;
-            private set;
-        }
 
         public int Distance
         {
@@ -14,9 +9,8 @@
             private set;
         }
 
-        public Race(uint time = 20, int distance = 25)
+        public Race(int distance = 25)
         {
-            Time = time;
             Distance = distance;
         }
 
@@ -47,7 +41,7 @@
                 {
                     if (movables[j].GetMoveDistance(time) < movables[j + 1].GetMoveDistance(time))
                     {
-                        var temp = movables[j];
+                        IMovable temp = movables[j];
                         movables[j] = movables[j + 1];
                         movables[j + 1] = temp;
                     }

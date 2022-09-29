@@ -28,8 +28,8 @@
 
         public float GetMoveDistance(float time, bool isCheck = false)
         {
-            float currentDistance = time < Engene.AccelerationTime ? (float)Engene.HorsePower / (float)Engene.AccelerationTime * time :
-                (float)Engene.HorsePower * time;
+            float currentDistance = time < Engene.AccelerationTime ? Engene.HorsePower / Engene.AccelerationTime * time :
+                Engene.HorsePower * time;
 
             return currentDistance;
         }
