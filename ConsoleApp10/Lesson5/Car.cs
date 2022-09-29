@@ -2,44 +2,45 @@
 {
     internal abstract class Car : IMovable
     {
-        public Engene Engene = null;
-        public Colors Colors 
+        protected Engine CarEngine = null;
+        
+        public Colors Color 
         {
             get;
             private set;
         }
+        
         public string Name
         {
             get;
             private set;
         }
 
-        public Car(string name, Engene engene, Colors colors)
+        protected Car(string name, Engine carEngine, Colors color)
         {
             Name = name;
-            Engene = engene;
-            Colors = colors;
+            CarEngine = carEngine;
+            Color = color;
         }
 
-        public Car()
+        protected Car()
         {
-
         }
 
-        public float GetMoveDistance(float time, bool isCheck = false)
+        public abstract void GetIndividualInfo();
+
+        public float GetMoveDistance(float time)
         {
-            float currentDistance = time < Engene.AccelerationTime ? Engene.HorsePower / Engene.AccelerationTime * time :
-                Engene.HorsePower * time;
+            float currentDistance = time < CarEngine.AccelerationTime ? (float)CarEngine.HorsePower / CarEngine.AccelerationTime * time :
+                CarEngine.HorsePower * time;
 
             return currentDistance;
         }
 
         public virtual void Setup()
         {
-            Engene = new Engene();
+            var name = String.Empty;
             
-            Console.Write("Enter your name: ");
-            string name = Console.ReadLine();
             while (name == string.Empty)
             {
                 Console.Write("Enter your name: ");
@@ -52,12 +53,11 @@
             Console.Write("Enter acceleration time: ");
             int accelerationTime = Input.InputCheck(Console.ReadLine());
 
-            Colors colors = Input.InputColor();
-
+            Colors inputColor = Input.InputColor();
+            
+            CarEngine = new Engine(horsePower, accelerationTime);
             Name = name;
-            Engene.HorsePower = horsePower;
-            Engene.AccelerationTime = accelerationTime;
-            Colors = colors;
+            Color = inputColor;
         }
     }
 }

@@ -1,28 +1,23 @@
 ﻿namespace ConsoleApp10.Lesson5
 {
-    internal class Engene
+    internal class Engine
     {
         public int HorsePower
         {
             get; 
-            set; 
+            private set; 
         }
 
         public int AccelerationTime
         {
             get;
-            set;
+            private set;
         }
 
-        public Engene(int horsePower, int accelerationTime)
+        public Engine(int horsePower, int accelerationTime)
         {
             HorsePower = horsePower;
             AccelerationTime = accelerationTime;
-        }
-
-        public Engene()
-        {
-
         }
     }
 }

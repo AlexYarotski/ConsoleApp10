@@ -47,11 +47,11 @@
             Console.WriteLine("1 - Add car");
             Console.WriteLine("2 - Remove car");
             Console.WriteLine("3 - Start race");
-            Console.Write($"Choose an action: ");
+            Console.Write("Choose an action: ");
 
             string strNumber = Console.ReadLine();
-            int number;
-            bool isNumber = int.TryParse(strNumber, out number);
+            bool isNumber = int.TryParse(strNumber, out int number);
+            
             if (movables.Length == 0)
             {
                 while (number <= 0 || number > 1 || strNumber == string.Empty)
@@ -61,7 +61,6 @@
                     number = Convert.ToInt32(strNumber);
                 }
             }
-
             else
             {
                 while (number <= 0 || number > 3 || strNumber == string.Empty)
@@ -71,6 +70,7 @@
                     number = Convert.ToInt32(strNumber);
                 }
             }
+
             Console.WriteLine("");
 
             return number;
@@ -94,21 +94,20 @@
 
             switch (numberCar)
             {
+                case 0:
+                    numberCar = ShowMainMenu(movables);
+                    break;
+                
                 case 1:
                     Lada lada = new Lada();
                     lada.Setup();
                     movables = AddCar(movables, lada);
-
                     break;
 
                 case 2:
                     Bmw bmw = new Bmw();
                     bmw.Setup();
                     movables = AddCar(movables, bmw);
-                    break;
-
-                case 0:
-                    numberCar = ShowMainMenu(movables);
                     break;
             }
 

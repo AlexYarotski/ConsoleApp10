@@ -1,6 +1,6 @@
 ﻿namespace ConsoleApp10.Lesson5
 {
-    internal class Input
+    internal static class Input
     {
         public static Colors InputColor()
         {
@@ -14,9 +14,8 @@
             }
 
             Console.Write("Choose a color: ");
-
-            string numColor = Console.ReadLine();
-            int num = InputCheck(numColor);
+            
+            int num = InputCheck(Console.ReadLine());
 
             return colors[num - 1];
         }

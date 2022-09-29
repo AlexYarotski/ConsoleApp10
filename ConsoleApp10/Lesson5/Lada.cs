@@ -8,7 +8,7 @@
             private set;
         }
 
-        public Lada(string name, Engene engeneCar, Colors colors, bool abs) : base(name, engeneCar, colors)
+        public Lada(string name, Engine carEngineCar, Colors color, bool abs) : base(name, carEngineCar, color)
         {
             Abs = abs;
         }
@@ -17,17 +17,21 @@
         {
 
         }
+        
+        public override void GetIndividualInfo()
+        {
+            Console.WriteLine($"Abs {Abs}");
+        }
 
         public override void Setup()
         {
             base.Setup();
+            
             bool abs = Input.InputBoolCheck("Abs: ");
-
-            Console.WriteLine("");
-            Console.Write($"You added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {Engene.HorsePower}" +
-                $" \r\nAcceleration Time{Engene.AccelerationTime}" +
-                $" \r\nColors: {Colors} \r\nAbs: {abs}\r\n");
-            Console.WriteLine("");
+            
+            Console.Write($"\nYou added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {CarEngine.HorsePower}" +
+                $" \r\nAcceleration Time{CarEngine.AccelerationTime}" +
+                $" \r\nColors: {Color} \r\nAbs: {abs}\r\n");
         }
     }
 }

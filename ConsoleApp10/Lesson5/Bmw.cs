@@ -5,28 +5,33 @@
         public bool Сonditioner 
         {
             get;
-            set;
+            private set;
         }
 
-        public Bmw(string name, Engene engeneCar, Colors colors, bool сonditioner) : base(name, engeneCar, colors)
+        public Bmw(string name, Engine carEngine, Colors color, bool сonditioner) : base(name, carEngine, color)
         {
             Сonditioner = сonditioner;
         }
 
         public Bmw()
         {
+        }
 
-        } 
+        public override void GetIndividualInfo()
+        {
+            Console.WriteLine($"Сonditioner {Сonditioner}");
+        }
 
         public override void Setup()
         {
             base.Setup();
+            
             bool conditioner = Input.InputBoolCheck("Conditioner: ");
 
             Console.WriteLine("");
-            Console.Write($"You added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {Engene.HorsePower}" +
-                $" \r\nAcceleration Time{Engene.AccelerationTime} " +
-                $"\r\nColors: {Colors} \r\nСonditioner: {conditioner}\r\n");
+            Console.Write($"You added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {CarEngine.HorsePower}" +
+                $" \r\nAcceleration Time{CarEngine.AccelerationTime} " +
+                $"\r\nColors: {Color} \r\nСonditioner: {conditioner}\r\n");
             Console.WriteLine("");
         }
     }
