@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp10.Lesson5
+﻿namespace ConsoleApp10.Lesson5
 {
     internal class Input
     {
-        public static Colors InputColor(Colors color)
+        public static Colors InputColor()
         {
-            int number = 1;
-            var colors = (Colors[])Enum.GetValues(typeof(Colors));
+            Colors[] colors = (Colors[])Enum.GetValues(typeof(Colors));
 
             Console.WriteLine("");
 
@@ -25,17 +18,7 @@ namespace ConsoleApp10.Lesson5
             string numColor = Console.ReadLine();
             int num = InputCheck(numColor);
 
-            for (int i = 1; i <= colors.Length; i++)
-            {
-                if (i == num)
-                {
-                    Console.WriteLine($"You choosed {colors[i - 1]} colors");
-                    color = colors[i - 1];
-                }
-            }
-            
-
-            return color;
+            return colors[num - 1];
         }
 
         public static int InputCheck(string input)
@@ -50,6 +33,26 @@ namespace ConsoleApp10.Lesson5
             }
 
             return number;
+        }
+
+        public static bool InputBoolCheck(string input)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("1 - True \r\n2 - False");
+            Console.Write(input);
+
+            string inputKey = Console.ReadLine();
+            int number;
+            bool haveBool = int.TryParse(inputKey, out number);
+            while (haveBool == false || number <= 0 || number > 2 || input == string.Empty)
+            {
+                Console.WriteLine("Please enter a positive number!");
+                inputKey = Console.ReadLine();
+                haveBool = int.TryParse(inputKey, out number);
+            }
+            Console.WriteLine("");
+
+            return number == 1? true : false;
         }
     }
 }

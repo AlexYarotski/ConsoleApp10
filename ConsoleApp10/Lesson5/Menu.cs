@@ -1,22 +1,23 @@
 ﻿namespace ConsoleApp10.Lesson5
 {
-    internal abstract class Menu
+    internal class Menu
     {
         public static IMovable[] MenuRaceSummary(IMovable[] movables)
         {
+            Menu menu = new Menu();
             int number = 0;
             do
             {
-                number = ShowMainMenu(movables);
+                number = menu.ShowMainMenu(movables);
 
                 switch (number)
                 {
                     case 1:
-                        movables = MenuAddCar(number, movables);
+                        movables = menu.MenuAddCar(number, movables);
                         break;
 
                     case 2:
-                        movables = DeleteCar(movables);
+                        movables = menu.DeleteCar(movables);
                         break;
                 }
             }
@@ -25,7 +26,7 @@
             return movables;
         }
 
-        public static int ShowMainMenu(IMovable[] movables)
+        public int ShowMainMenu(IMovable[] movables)
         {
             Console.WriteLine("Members: ");
 
@@ -69,14 +70,13 @@
                     strNumber = Console.ReadLine();
                     number = Convert.ToInt32(strNumber);
                 }
-
             }
             Console.WriteLine("");
 
             return number;
         }
 
-        public static IMovable[] MenuAddCar(int numberCar, IMovable[] movables)
+        public IMovable[] MenuAddCar(int numberCar, IMovable[] movables)
         {
             Console.WriteLine("1 - Lada");
             Console.WriteLine("2 - Bmw");
@@ -115,7 +115,7 @@
             return movables;
         }
 
-        public static IMovable[] DeleteCar(IMovable[] movables)
+        public IMovable[] DeleteCar(IMovable[] movables)
         {
             IMovable[] deleteCarArray = new IMovable[movables.Length - 1];
 
@@ -157,7 +157,7 @@
             return deleteCarArray;
         }
 
-        public static IMovable[] AddCar(IMovable[] movables, IMovable movable)
+        public IMovable[] AddCar(IMovable[] movables, IMovable movable)
         {
             IMovable[] newMovables = new IMovable[movables.Length + 1];
             for (int i = 0; i < movables.Length; i++)

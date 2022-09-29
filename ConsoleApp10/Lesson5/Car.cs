@@ -3,18 +3,22 @@
     internal abstract class Car : IMovable
     {
         public Engene Engene = null;
-        private float _distance = 0;
-
+        public Colors Colors 
+        {
+            get;
+            private set;
+        }
         public string Name
         {
             get;
             private set;
         }
 
-        public Car(string name, Engene engene)
+        public Car(string name, Engene engene, Colors colors)
         {
             Name = name;
             Engene = engene;
+            Colors = colors;
         }
 
         public Car()
@@ -24,20 +28,16 @@
 
         public float GetMoveDistance(float time, bool isCheck = false)
         {
-            float currentDistance = time < Engene.AccelerationTime ? (float)Engene.HorsePower / (float)Engene.AccelerationTime * time : (float)Engene.HorsePower;
+            float currentDistance = time < Engene.AccelerationTime ? (float)Engene.HorsePower / (float)Engene.AccelerationTime * time :
+                (float)Engene.HorsePower * time;
 
-            if (!isCheck)
-            {
-                _distance += currentDistance;
-            }
-
-            return _distance;
+            return currentDistance;
         }
 
         public virtual void Setup()
         {
             Engene = new Engene();
-
+            
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
             while (name == string.Empty)
@@ -52,11 +52,12 @@
             Console.Write("Enter acceleration time: ");
             int accelerationTime = Input.InputCheck(Console.ReadLine());
 
+            Colors colors = Input.InputColor();
+
             Name = name;
             Engene.HorsePower = horsePower;
             Engene.AccelerationTime = accelerationTime;
+            Colors = colors;
         }
-
-        
     }
 }

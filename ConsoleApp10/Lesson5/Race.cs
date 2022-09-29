@@ -22,7 +22,6 @@
 
         public async Task<IMovable[]> StartRace(IMovable[] movables, float refreshDelay)
         {
-            movables = Menu.MenuRaceSummary(movables);
             string[] racingCar = new string[movables.Length];
             
             for (float i = 0; !IsAllFinished(movables, i); i += refreshDelay)
@@ -41,9 +40,7 @@
                 Console.Clear();
             }
 
-            int[] index = new int[movables.Length];
             int time = 2;
-
             for (int i = 0; i < movables.Length - 1; i++)
             {
                 for (int j = 0; j < movables.Length - 1 - i; j++)
@@ -59,7 +56,9 @@
 
             for (int i = 0; i < movables.Length; i++)
             {
-                Console.WriteLine($"{i + 1} place: {movables[i].GetType().Name} \r\nName: {((Car)movables[i]).Name} \r\nHorsePower: {((Car)movables[i]).Engene.HorsePower} \r\nAccelerationTime: {((Car)movables[i]).Engene.AccelerationTime} \r\nColor: ");
+                Console.WriteLine($"{i + 1} place: {movables[i].GetType().Name} \r\nName: {((Car)movables[i]).Name}" +
+                    $" \r\nHorsePower: {((Car)movables[i]).Engene.HorsePower} \r\nAccelerationTime: {((Car)movables[i]).Engene.AccelerationTime}" +
+                    $" \r\nColor: {((Car)movables[i]).Colors} \r\n");
                 Console.WriteLine("");
             }
 
@@ -78,6 +77,5 @@
 
             return true;
         }
-
     }
 }
