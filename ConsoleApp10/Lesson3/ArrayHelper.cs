@@ -1,8 +1,10 @@
-﻿namespace ConsoleApp10.Lesson3
+﻿using ConsoleApp10.Lesson5;
+
+namespace ConsoleApp10.Lesson3
 {
-    internal class ArrayHelper
+    internal static class ArrayHelper
     {
-        public bool IsValid(int[] ints)
+        public static bool IsValid(int[] ints)
         {
             if (ints == null || ints.Length == 0)
             {
@@ -14,7 +16,7 @@
             return true;
         }
 
-        public void Print(int[] ints)
+        public static void Print(int[] ints)
         {
             if (!IsValid(ints))
             {
@@ -29,7 +31,7 @@
             Console.WriteLine();
         }
 
-        public int Max(int[] ints)
+        public static int Max(int[] ints)
         {
             if (!IsValid(ints))
             {
@@ -49,7 +51,7 @@
             return max;
         }
 
-        public int Min(int[] ints)
+        public static int Min(int[] ints)
         {
             if (!IsValid(ints))
             {
@@ -67,6 +69,19 @@
             }
 
             return min;
+        }
+
+        public static bool IsContain(this int[] array, int target)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == target)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

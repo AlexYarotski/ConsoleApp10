@@ -8,9 +8,9 @@ namespace ConsoleApp10.Lesson3
 {
     public abstract class OutfitBase 
     {
-        private Colors _colors = default;
+        private ColorsWork _colors = default;
 
-        public OutfitBase(Colors colors)
+        public OutfitBase(ColorsWork colors)
         {
             _colors = colors;
         }

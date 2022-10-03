@@ -2,15 +2,37 @@
 {
     internal class Bmw : Car
     {
-        public string Color 
+        public bool Сonditioner 
         {
-            get; 
+            get;
             private set;
         }
 
-        public Bmw(string name, Engene engeneCar, string color) : base(name, engeneCar)
+        public Bmw(string name, Engine carEngine, Colors color, bool сonditioner) : base(name, carEngine, color)
         {
-            Color = color;
+            Сonditioner = сonditioner;
+        }
+
+        public Bmw()
+        {
+        }
+
+        public override void GetIndividualInfo()
+        {
+            Console.WriteLine($"Сonditioner {Сonditioner}");
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+            
+            bool conditioner = Input.InputBoolCheck("Conditioner: ");
+
+            Console.WriteLine("");
+            Console.Write($"You added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {CarEngine.HorsePower}" +
+                $" \r\nAcceleration Time{CarEngine.AccelerationTime} " +
+                $"\r\nColors: {Color} \r\nСonditioner: {conditioner}\r\n");
+            Console.WriteLine("");
         }
     }
 }

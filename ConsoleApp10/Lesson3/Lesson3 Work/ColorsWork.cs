@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp10.Lesson3
 {
-    public enum Colors
+    public enum ColorsWork
     {
         Green,
         Red,

@@ -8,7 +8,7 @@ namespace ConsoleApp10.Lesson3
 {
     public class Clothes : OutfitBase
     {
-        public Clothes(Colors colors) : base(colors)
+        public Clothes(ColorsWork colors) : base(colors)
         {
         }
 

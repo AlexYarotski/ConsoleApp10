@@ -2,15 +2,36 @@
 {
     internal class Lada : Car
     {
-        public string Color
+        public bool Abs
         {
             get;
-            private set; 
-        }   
+            private set;
+        }
 
-        public Lada(string name, Engene engeneCar, string color) : base(name, engeneCar)
+        public Lada(string name, Engine carEngineCar, Colors color, bool abs) : base(name, carEngineCar, color)
         {
-            Color = color;
+            Abs = abs;
+        }
+
+        public Lada()
+        {
+
+        }
+        
+        public override void GetIndividualInfo()
+        {
+            Console.WriteLine($"Abs {Abs}");
+        }
+
+        public override void Setup()
+        {
+            base.Setup();
+            
+            bool abs = Input.InputBoolCheck("Abs: ");
+            
+            Console.Write($"\nYou added: {GetType().Name} \r\nName: {Name} \r\nHorse Power: {CarEngine.HorsePower}" +
+                $" \r\nAcceleration Time{CarEngine.AccelerationTime}" +
+                $" \r\nColors: {Color} \r\nAbs: {abs}\r\n");
         }
     }
 }
